@@ -1,0 +1,102 @@
+<div class="modal-content">
+
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="$dismiss()" aria-label="Close">
+      <em class="ion-ios-close-empty sn-link-close"></em>
+    </button>
+    <div class="row">
+      <button type="button" ng-if="back" class="btn btn-info" ng-click="goBack()">返回
+      </button>
+      <h4 class="modal-title">详情</h4>
+    </div>
+
+  </div>
+
+  <div class="modal-body text-center">
+
+    <table class="table">
+      <tr>
+        <td class="align-right">序号</td>
+        <td class="align-left">{{order.id}} </td>
+      </tr>
+      <tr ng-if="org">
+        <td class="align-right">原订单号</td>
+        <td class="align-left" ng-click="goOrg()">{{org_no ? org_no : org_order.order_no}}</td>
+      </tr>
+      <tr>
+        <td class="align-right">订单号</td>
+        <td class="align-left">{{order.order_no}}</td>
+      </tr>
+      <tr>
+        <td class="align-right">交易号</td>
+        <td class="align-left">{{order.transaction_no}}</td>
+      </tr>
+      <tr>
+        <td class="align-right">接入方订单号</td>
+        <td class="align-left">{{order.out_pay_order}}</td>
+      </tr>
+      <tr>
+        <td class="align-right">用户ID</td>
+        <td class="align-left">{{order.user_id}}</td>
+      </tr>
+      <tr>
+        <td class="align-right">渠道</td>
+        <td class="align-left">{{order.channel}}</td>
+      </tr>
+      <tr>
+        <td class="align-right">交易类型</td>
+        <td class="align-left">{{order.trans_type == 'charge' ? '交易': order.trans_type == 'refund' ? '退款' : '-'}}</td>
+      </tr>
+      <tr>
+        <td class="align-right">商品</td>
+        <td class="align-left">{{order.subject}}</td>
+      </tr>
+      <tr>
+        <td class="align-right">订单描述</td>
+        <td class="align-left">{{order.body}}</td>
+      </tr>
+      <tr>
+        <td class="align-right">金额</td>
+        <td class="align-left">{{order.amount}}</td>
+      </tr>
+      <tr>
+        <td class="align-right">支付金额</td>
+        <td class="align-left">{{order.amount_pay}}</td>
+      </tr>
+      <tr>
+        <td class="align-right">退款金额</td>
+        <td class="align-left">{{order.amount_refunded}}</td>
+      </tr>
+      <tr>
+        <td class="align-right">付款商户</td>
+        <td class="align-left">{{order.merchant}}</td>
+      </tr>
+      <tr>
+        <td class="align-right">平台号</td>
+        <td class="align-left">{{order.platform_no}}</td>
+      </tr>
+      <tr>
+        <td class="align-right">状态</td>
+        <td class="align-left">{{order.status == 0?"创建":order.status == 1?"成功":order.status == 2?"超时":order.status == 3 ? "退款":order.status == 4 ? "取消":order.status}}
+      </tr>
+      <tr>
+        <td class="align-right">创建时间</td>
+        <td class="align-left">{{order.created_time}}</td>
+      </tr>
+      <tr>
+        <td class="align-right">到期时间</td>
+        <td class="align-left">{{order.time_expire}}</td>
+      </tr>
+      <tr>
+        <td class="align-right">交易时间</td>
+        <td class="align-left">{{order.time_paid}}</td>
+      </tr>
+      <tr>
+        <td class="align-right">通知地址</td>
+        <td class="align-left">{{order.notify_url}}</td>
+      </tr>
+
+</table>
+
+</div>
+</div>

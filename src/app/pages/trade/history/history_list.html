@@ -1,0 +1,177 @@
+<div class="widgets" ng-show="openList">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="out_pay_order">接入方订单号</label>
+                <input type="text" ng-model="param.out_pay_order" class="form-control" id="out_pay_order" placeholder="">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="order_no">流水号</label>
+                <input type="text" ng-model="param.order_no" class="form-control" id="order_no" placeholder="">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="status">订单状态</label>
+                <select class="form-control" id="status" ng-model="param.status" title="订单状态" data-style="btn-primary" data-container="body" selectpicker>
+                    <option></option>
+                    <option value="0">创建</option>
+                    <option value="1">成功</option>
+                    <option value="2">超时</option>
+                    <option value="3">退款</option>
+                    <!--<option value="4">支付中</option>-->
+                    <option value="5">取消</option>
+                </select>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="type">订单类型</label>
+                <select class="form-control" id="type" ng-model="param.trans_type" title="订单类型" data-style="btn-primary" data-container="body" selectpicker>
+                    <option></option>
+                    <option value="charge">交易</option>
+                    <option value="refund">退款</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="channel">选择支付渠道</label>
+                <select class="form-control" id="channel" ng-model="param.channel" title="支付渠道" data-style="btn-primary" data-container="body" selectpicker>
+                    <option></option>
+                    <option ng-repeat="item in channel.list" value="{{item.merchant_no}}">{{item.merchant_no}}      {{item.merchant_name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="form-group">
+                <label for="order_no">交易日期</label>
+               <div class="input-date range input-group">
+                    <input ng-dblclick="clearDate()" ng-click="selectDate()" type="text" ng-model="param.start" id="start" class="form-control" name="start"/>
+                    <span class="input-group-addon">到</span>
+                   <input ng-dblclick="clearDate()" ng-click="selectDate()" type="text" ng-model="param.end" id="end" class="form-control" name="end"/>
+               </div>
+            </div>
+            <div ng-show="showDatePicker" id="myPicker" style="position: absolute;z-index: 100;border:1px solid #000">
+                <div>
+                    <ul class="btn-list clearfix">
+                        <li><button title="关闭" ng-click="closeDatePicker()" type="button" class="btn btn-primary btn-icon"><i class="ion-ios-close-outline"></i></button></li>
+                        <li><button title="清空" ng-click="clearDate()" type="button" class="btn btn-primary btn-icon"><i class="ion-loop"></i></button></li>
+                    </ul>
+                </div>
+                <div date-range id="pickerRange" start="query.start" end="query.end" date-change="changeDate" view="date" min-view="date" timezone="UTC"></div>
+            </div>
+        </div>
+        <div class="col-md-1">
+            <label></label>
+            <div class="button-wrapper"><button type="button" ng-click="queryBtn()" class="btn btn-primary  btn-sm">查询</button></div>
+        </div>
+
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div ba-panel ba-panel-title="交易列表" ba-panel-class="with-scroll">
+                <div include-with-scope="app/pages/trade/history/history_table.html"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="widgets" ng-hide="openList">
+    <table class="table">
+        <tr>
+            <td class="align-right">序号</td>
+            <td class="align-left">{{order.id}} </td>
+        </tr>
+        <tr ng-if="org">
+            <td class="align-right">原流水号</td>
+            <td class="align-left">{{org_order.order_no}}</td>
+        </tr>
+        <tr>
+            <td class="align-right">流水号</td>
+            <td class="align-left">{{order.order_no}}</td>
+        </tr>
+        <tr>
+            <td class="align-right">交易号</td>
+            <td class="align-left">{{order.transaction_no}}</td>
+        </tr>
+        <tr>
+            <td class="align-right">接入方订单号</td>
+            <td class="align-left">{{order.out_trade_no}}</td>
+        </tr>
+        <tr>
+            <td class="align-right">用户ID</td>
+            <td class="align-left">{{order.user_id}}</td>
+        </tr>
+        <tr>
+            <td class="align-right">渠道</td>
+            <td class="align-left">{{order.channel}}</td>
+        </tr>
+        <tr>
+            <td class="align-right">交易类型</td>
+            <td class="align-left">{{order.trans_type == 'charge' ? '交易': order.trans_type == 'refund' ? '退款' : '-'}}</td>
+        </tr>
+        <tr>
+            <td class="align-right">商品</td>
+            <td class="align-left">{{order.subject}}</td>
+        </tr>
+        <tr>
+            <td class="align-right">订单描述</td>
+            <td class="align-left">{{order.body}}</td>
+        </tr>
+        <tr>
+            <td class="align-right">订单金额</td>
+            <td class="align-left">{{order.amount}}</td>
+        </tr>
+        <tr>
+            <td class="align-right">支付金额</td>
+            <td class="align-left">{{order.amount_pay}}</td>
+        </tr>
+        <tr>
+            <td class="align-right">退款金额</td>
+            <td class="align-left">{{order.amount_refunded}}</td>
+        </tr>
+        <tr>
+            <td class="align-right">付款商户</td>
+            <td class="align-left">{{order.merchant}}</td>
+        </tr>
+        <tr>
+            <td class="align-right">平台号</td>
+            <td class="align-left">{{order.platform_no}}</td>
+        </tr>
+        <tr>
+            <td class="align-right">状态</td>
+            <td class="align-left">{{order.status == 0?"创建":order.status == 1?"成功":order.status == 2?"超时":order.status == 3 ? "退款":order.status == 4 ? "取消":order.status}}
+        </tr>
+        <tr>
+            <td class="align-right">创建时间</td>
+            <td class="align-left">{{order.created_time}}</td>
+        </tr>
+        <tr>
+            <td class="align-right">到期时间</td>
+            <td class="align-left">{{order.time_expire}}</td>
+        </tr>
+        <tr>
+            <td class="align-right">交易时间</td>
+            <td class="align-left">{{order.time_paid}}</td>
+        </tr>
+        <tr>
+            <td class="align-right">通知地址</td>
+            <td class="align-left">{{order.notify_url}}</td>
+        </tr>
+        <tfoot>
+            <div class="align-left">
+                <button type="button" class="btn btn-primary btn-sm" ng-click="goBack()">返回</button>
+            </div>
+        </tfoot>
+    </table>
+
+</div>

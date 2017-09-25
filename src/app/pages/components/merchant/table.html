@@ -1,0 +1,67 @@
+<div class="horizontal-scroll">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th class="align-right">#</th>
+            <th class="align-right">支付渠道编号</th>
+            <th class="align-right">支付渠道名称</th>
+            <th class="align-right">签名类型</th>
+            <th class="align-right">回调地址</th>
+            <th class="align-right">状态</th>
+            <th class="align-right">操作</th>
+        </tr>
+        </thead>
+        <tr ng-repeat="item in data.list">
+            <td class="align-right">{{item.id}}</td>
+            <td class="align-right">{{item.merchant_no}}</td>
+            <td class="align-right">{{item.merchant_name}}</td>
+            <td class="align-right">{{item.sign_type == "MD5"?"MD5":item.sign_type == "RSA2"?"RSA2":"-"}}</td>
+            <td class="align-right">{{item.notify_url}}</td>
+            <td class="align-right">{{item.status == 0?"创建":item.status == 1?"正常":item.status == 2?"禁用":"-"}}
+            </td>
+            <td class="align-right">
+                <a href="javascript:void(0)" ng-click="switchStatus({{item.id}},{{item.status == 1?2:1}})">{{item.status == 1?"禁用":"启用"}}</a>
+                <a href="javascript:void(0);" ng-click="delete(item.id,item.merchant_name)">{{item.status == 1 ? '' : '删除'}}</a>
+                <a href="#/components/edit_merchant/edit/{{item.id}}">{{item.status == 1 ? '' : '编辑'}}</a>
+            </td>
+        </tr>
+        <tfoot>
+        <tr>
+        <td colspan="7" class="text-center">
+            <!--        <div class="row"  ng-if="data.list.length">
+                    <div class="col-md-2">
+                        当前第{{data.pageNumber}}页
+                    </div>
+                    <div class="col-md-2">
+                        总共{{data.totalPage}}页
+                    </div>
+                    <div id="btn-group"  class="btn-group col-md-8" role="group" aria-label="First group">
+                        <button type="button" data-ng-repeat="btn in btns" ng-click="page(btn+1)" class="btn btn-primary">{{btn+1}}</button>
+                    </div>
+
+                </div>-->
+
+
+            <div ng-if="data.totalPage">
+                <uib-pagination
+                        total-items="data.totalRow"
+                        class="pagination-sm"
+                        ng-model="param.page"
+                        max-size="5"
+                        boundary-links="true"
+                        force-ellipses="false"
+                        first-text="首页"
+                        last-text="末页"
+                        previous-text="上一页"
+                        next-text="下一页"
+                        num-pages="data.totalPage"
+                        ng-change="queryMerchant()"
+                        items-per-page="data.pageSize">
+                </uib-pagination>
+
+            </div>
+        </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>

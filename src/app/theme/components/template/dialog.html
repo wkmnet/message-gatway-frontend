@@ -1,0 +1,15 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="$close('x')" aria-label="Close">
+      <em class="ion-ios-close-empty sn-link-close"></em>
+    </button>
+    <h4 class="modal-title" id="myModalLabel">{{confirm_title}}</h4>
+  </div>
+  <div class="modal-body" style="text-align: center">
+    {{confirm_body}}
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" ng-click="$close('ok')">确认</button>
+    <button type="button" class="btn btn-primary" ng-click="$close('cancel')">取消</button>
+  </div>
+</div>

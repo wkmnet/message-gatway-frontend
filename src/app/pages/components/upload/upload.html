@@ -1,0 +1,33 @@
+<div class="widgets">
+    <div class="row">
+        <div class="col-lg-6 col-md-3">
+            <div class="progress">
+                <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="{{currentItem.progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{currentItem.progress}}%">
+                    <span class="sr-only">{{currentItem.progress}}% Complete (success)</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-3">
+            <button type="button" class="btn btn-primary btn-with-icon"><i class="ion-stats-bars"></i>{{system.currentTime}}</button>
+        </div>
+        <div class="col-lg-2 col-md-3">
+            <button type="button" class="btn btn-success" ng-click="selectUploadFile()">上传视频</button>
+            <input ng-hide="true" id="uploadFileVideo" type="file" nv-file-select="uploadFile()" uploader="uploader"/>
+        </div>
+        <div class="col-lg-2 col-md-3">
+            <div class="form-group">
+                <select class="form-control" ng-model="address.type" ng-change="changeSelected(address.type)" title="Primary Select" data-style="btn-primary" data-container="body" selectpicker>
+                    <option value="qn">七牛</option>
+                    <option value="le">乐视</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div ba-panel ba-panel-title="{{tableName}}" ba-panel-class="with-scroll table-panel">
+                <div include-with-scope="app/pages/components/upload/table.html"></div>
+            </div>
+        </div>
+    </div>
+</div>
