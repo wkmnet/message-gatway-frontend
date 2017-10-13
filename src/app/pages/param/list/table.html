@@ -1,0 +1,49 @@
+<div class="horizontal-scroll">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th class="align-right">#</th>
+            <th class="align-right">参数名称</th>
+            <th class="align-right">关联通道</th>
+            <th class="align-right">参数值</th>
+            <th class="align-right">描述</th>
+            <th class="align-right">操作</th>
+        </tr>
+        </thead>
+        <tr ng-repeat="item in data.list">
+            <td class="align-right">{{item.id}}</td>
+            <td class="align-right">{{item.param_key}}</td>
+            <td class="align-right">{{item.channel_no}}</td>
+            <td class="align-right">{{item.param_value}}</td>
+            <td class="align-right">{{item.description}}</td>
+            <td class="align-right">
+                <a href="javascript:void(0);" ng-click="delete(item.id,item.param_key)">删除</a>
+                <a href="#/param/new/edit/{{item.id}}">编辑</a>
+            </td>
+        </tr>
+        <tfoot>
+        <tr>
+            <td colspan="8" class="text-center">
+                <div ng-if="data.totalPage">
+                    <uib-pagination
+                            total-items="data.totalRow"
+                            class="pagination-sm"
+                            ng-model="param.page"
+                            max-size="5"
+                            boundary-links="true"
+                            force-ellipses="false"
+                            first-text="首页"
+                            last-text="末页"
+                            previous-text="上一页"
+                            next-text="下一页"
+                            num-pages="data.totalPage"
+                            ng-change="queryUser()"
+                            items-per-page="data.pageSize">
+                    </uib-pagination>
+                </div>
+
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>

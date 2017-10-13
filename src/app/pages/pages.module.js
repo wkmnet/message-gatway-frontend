@@ -10,17 +10,19 @@
 
     'BlurAdmin.pages.dashboard',
     // 'BlurAdmin.pages.ui',
-    'BlurAdmin.pages.components',
+    //'BlurAdmin.pages.components',
     'BlurAdmin.pages.user',
-    'BlurAdmin.pages.agency',
-    'BlurAdmin.pages.trade',
-    'BlurAdmin.pages.message',
-    'BlurAdmin.pages.config',
+    //'BlurAdmin.pages.agency',
+    //'BlurAdmin.pages.trade',
+    //'BlurAdmin.pages.message',
+    //'BlurAdmin.pages.config',
     // 'BlurAdmin.pages.form',
     // 'BlurAdmin.pages.tables',
     // 'BlurAdmin.pages.charts',
     // 'BlurAdmin.pages.maps',
     'BlurAdmin.pages.profile',
+    'BlurAdmin.pages.channel',
+    'BlurAdmin.pages.param',
   ])
       .config(routeConfig);
 

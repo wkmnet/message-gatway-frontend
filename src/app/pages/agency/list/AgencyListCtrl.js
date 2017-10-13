@@ -12,7 +12,7 @@
 (function(){
     'use strict'
 
-    angular.module('BlurAdmin.pages.user.list')
+    angular.module('BlurAdmin.pages.agency.list')
         .controller('AgencyListCtrl', AgencyListCtrl);
 
     /** @ngInject */
@@ -59,7 +59,7 @@
         $scope.queryAgency();
 
         $scope.delete = function(id,name){
-            commonService.confirm($scope,'确认对话框','您确定要删除 ' + name +' 平台吗？').then(function(result){
+            commonService.confirm($scope,'确认对话框','您确定要删除 ' + name +' 短信通道吗？').then(function(result){
                 console.log("result...",result);
                 if(result == 'ok'){
                     $scope.deleteAgency(id);

@@ -7,6 +7,8 @@
             <th class="align-right">用户名</th>
             <th class="align-right">角色</th>
             <th class="align-right">创建时间</th>
+            <th class="align-right">登录时间</th>
+            <th class="align-right">Token有效期(小时)</th>
             <th class="align-right">操作</th>
         </tr>
         </thead>
@@ -16,6 +18,8 @@
             <td class="align-right">{{item.user_name}}</td>
             <td class="align-right">{{item.role == 'admin' ? '管理员': item.role == 'normal' ?'普通用户' : item.role}}</td>
             <td class="align-right">{{item.created_time}}</td>
+            <td class="align-right">{{item.login_time}}</td>
+            <td class="align-right">{{item.login_validate_time}}</td>
             <td class="align-right">
                 <a href="javascript:void(0);" ng-click="delete(item.id,item.user_name)">{{currentUser.role == 'admin' ? '删除' : item.id == currentUser.id ? '删除':''}}</a>
                 <a href="#/user/new/edit/{{item.id}}">{{currentUser.role == 'admin' ? '编辑' : item.id == currentUser.id ? '编辑':''}}</a>
@@ -23,7 +27,7 @@
         </tr>
         <tfoot>
         <tr>
-            <td colspan="5" class="text-center">
+            <td colspan="8" class="text-center">
                <!-- <div class="row"  ng-if="data.list.length">
                     <div class="col-md-2">
                         当前第{{data.pageNumber}}页

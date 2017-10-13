@@ -29,7 +29,7 @@
                 console.log("response:",response);
                 if(response.success){
                     toastr.success('数据保存成功!');
-                    $scope.user = {};
+                    $scope.agency = {};
                 } else {
                     toastr.error(response.message);
                 }

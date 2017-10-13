@@ -1,0 +1,29 @@
+<form>
+
+    <div class="form-group">
+        <label for="channel_no">短信通道</label>
+        <select class="form-control" id="channel_no" ng-model="param.channel_no" title="平台状态" data-style="btn-primary" data-container="body" selectpicker>
+            <option></option>
+            <option value="{{item.channel_no}}" data-ng-repeat="item in channels.list">{{item.id}} {{item.channel_no}} {{item.channel_name}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="param_key">参数名称</label>
+        <input type="text" class="form-control" id="param_key" ng-model="param.param_key" placeholder="参数名称">
+    </div>
+    <div class="form-group">
+        <label for="param_value">参数值</label>
+        <textarea class="form-control" id="param_value" ng-model="param.param_value" placeholder="参数值"/>
+    </div>
+    <div class="form-group">
+        <label for="description">参数描述</label>
+        <input type="text" class="form-control" id="description" ng-model="param.description" placeholder="参数描述">
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="button-wrapper">
+                <button type="button" ng-click="checkParam()" class="btn btn-success">保存</button>
+            </div>
+        </div>
+    </div>
+</form>
