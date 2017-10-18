@@ -50,8 +50,9 @@
                 toastr.error("关联实现类不能为空！");
                 return;
             }
+            var reg = new RegExp("^(\\d|[1-9]\\d|100)$");
             if ($scope.channel.level) {
-                if ($scope.channel.level < 0 || $scope.channel.level > 100) {
+                if (!reg.test($scope.channel.level)) {
                     toastr.error("优先级为0-100数字,不填默认100最低优先级!）");
                     return;
                 }
