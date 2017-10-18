@@ -56,7 +56,7 @@
         };
 
         $scope.checkParam = function () {
-            if (!$scope.param.channel_id) {
+            if (!$scope.param.channel_no) {
                 toastr.error("请选择短信通道！");
                 return;
             }
