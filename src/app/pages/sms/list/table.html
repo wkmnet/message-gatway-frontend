@@ -1,0 +1,50 @@
+<div class="horizontal-scroll">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th class="align-right">#</th>
+            <th class="align-right">短信编号</th>
+            <th class="align-right">通道</th>
+            <th class="align-right">国际码</th>
+            <th class="align-right">手机号</th>
+            <th class="align-right">内容</th>
+            <th class="align-right">状态</th>
+            <th class="align-right">响应</th>
+        </tr>
+        </thead>
+        <tr ng-repeat="item in data.list">
+            <td class="align-right">{{item.id}}</td>
+            <td class="align-right">{{item.sms_no}}</td>
+            <td class="align-right">{{item.channel_no}}</td>
+            <td class="align-right">{{item.internal_code}}</td>
+            <td class="align-right">{{item.phone}}</td>
+            <td class="align-right">{{item.content}}</td>
+            <td class="align-right">{{item.status == 0 ? '发送中':item.status == 1 ? '成功':item.status == 2 ? '失败':'-'}}</td>
+            <td class="align-right">{{item.response}}</td>
+        </tr>
+        <tfoot>
+        <tr>
+            <td colspan="8" class="text-center">
+                <div ng-if="data.totalPage">
+                    <uib-pagination
+                            total-items="data.totalRow"
+                            class="pagination-sm"
+                            ng-model="param.page"
+                            max-size="5"
+                            boundary-links="true"
+                            force-ellipses="false"
+                            first-text="首页"
+                            last-text="末页"
+                            previous-text="上一页"
+                            next-text="下一页"
+                            num-pages="data.totalPage"
+                            ng-change="querySms()"
+                            items-per-page="data.pageSize">
+                    </uib-pagination>
+                </div>
+
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>

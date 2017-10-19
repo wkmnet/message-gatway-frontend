@@ -1,0 +1,59 @@
+<div class="widgets">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="channel_no">短信通道</label>
+                <select class="form-control" id="channel_no" ng-model="param.channel_no" title="平台状态" data-style="btn-primary" data-container="body" selectpicker>
+                    <option></option>
+                    <option value="{{item.channel_no}}" data-ng-repeat="item in channels.list">{{item.id}} {{item.channel_no}} {{item.channel_name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="phone">手机号</label>
+                <input type="text" ng-model="param.phone" class="form-control" id="phone" placeholder="">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="sms_no">短信编号</label>
+                <input type="text" ng-model="param.sms_no" class="form-control" id="sms_no" placeholder="">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="country">区域</label>
+                <select class="form-control" id="country" ng-model="param.country" title="区域" data-style="btn-primary" data-container="body" selectpicker>
+                    <option></option>
+                    <option value="0">国内</option>
+                    <option value="1">国外</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="status">状态</label>
+                <select class="form-control" id="status" ng-model="param.status" title="状态" data-style="btn-primary" data-container="body" selectpicker>
+                    <option></option>
+                    <option value="0">发送中</option>
+                    <option value="1">成功</option>
+                    <option value="2">失败</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <label></label>
+            <div class="button-wrapper"><button type="button" ng-click="queryBtn()" class="btn btn-primary  btn-sm">查询</button></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div ba-panel ba-panel-title="短信列表" ba-panel-class="with-scroll">
+                <div include-with-scope="app/pages/sms/list/table.html"></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -23,6 +23,7 @@
     'BlurAdmin.pages.profile',
     'BlurAdmin.pages.channel',
     'BlurAdmin.pages.param',
+    'BlurAdmin.pages.sms',
   ])
       .config(routeConfig);
 
