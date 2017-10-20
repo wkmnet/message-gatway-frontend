@@ -24,8 +24,8 @@
                 abstract: true,
                 title: '短信管理',
                 sidebarMeta: {
-                    icon: 'ion-monitor',
-                    order: 50,
+                    icon: 'ion-email',
+                    order: 0,
                 },
             });
     }

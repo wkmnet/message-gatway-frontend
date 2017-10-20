@@ -20,7 +20,7 @@
           title: '用户管理',
           sidebarMeta: {
             icon: 'ion-person-stalker',
-            order: 50,
+            order: 100,
           },
         });
   }

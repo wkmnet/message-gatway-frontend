@@ -28,7 +28,7 @@
                 title: '通道管理',
                 sidebarMeta: {
                     icon: 'ion-monitor',
-                    order: 50,
+                    order: 10,
                 },
             });
     }

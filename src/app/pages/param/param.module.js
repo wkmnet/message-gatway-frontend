@@ -28,7 +28,7 @@
                 title: '通道参数管理',
                 sidebarMeta: {
                     icon: 'ion-ios-drag',
-                    order: 50,
+                    order: 20,
                 },
             });
     }
