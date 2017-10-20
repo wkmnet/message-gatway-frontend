@@ -10,29 +10,29 @@
  *
  */
 
-(function(){
+(function () {
     'use strict'
 
     angular.module('BlurAdmin.pages.sms.list')
         .controller('SmsCtrl', SmsCtrl);
 
     /** @ngInject */
-    function SmsCtrl($scope, $http, toastr, cfpLoadingBar,commonService) {
+    function SmsCtrl($scope, $http, toastr, cfpLoadingBar, commonService) {
         $scope.tablePageSize = 10;
-        $scope.param = {"page":1,"page_size":$scope.tablePageSize};
+        $scope.param = {"page": 1, "page_size": $scope.tablePageSize};
         $scope.data = {};
         $scope.channels = {};
 
-        $scope.getChannels = function(){
-            $http.get("/api/channel").success(function(response){
-                if(response.success){
+        $scope.getChannels = function () {
+            $http.get("/api/channel").success(function (response) {
+                if (response.success) {
                     $scope.channels = response.data;
-                    console.log("channels: " , $scope.channels);
-                }else{
+                    console.log("channels: ", $scope.channels);
+                } else {
                     toastr.error(resp.message);
                 }
-            }).error(function(resp,status){
-                console.log("status:",status);
+            }).error(function (resp, status) {
+                console.log("status:", status);
                 toastr.error(resp);
             });
         };
@@ -47,27 +47,50 @@
                 "&status=" + ($scope.param.status || "") +
                 "&country=" + ($scope.param.country || "") +
                 "&phone=" + ($scope.param.phone || "");
-            $http.get(url).success(function(resp){
-                if(resp.success){
+            $http.get(url).success(function (resp) {
+                if (resp.success) {
                     $scope.data = resp.data;
                 } else {
                     toastr.error(resp.message);
                 }
                 cfpLoadingBar.complete();
-            }).error(function(resp,status){
-                console.log("status:",status);
+            }).error(function (resp, status) {
+                console.log("status:", status);
                 toastr.error(resp);
                 cfpLoadingBar.complete();
             });
 
         };
 
-        $scope.queryBtn = function(){
+        $scope.queryBtn = function () {
             $scope.param.page = 1;
             $scope.querySms();
         };
         $scope.querySms();
-        
+
+        $scope.isJson = function (str) {
+            if (typeof str == 'string') {
+                try {
+                    var obj = JSON.parse(str);
+                    if (str.indexOf('{') > -1) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } catch (e) {
+                    return false;
+                }
+            }
+            return false;
+        }
+        $scope.strToJson = function (channel_no, str) {
+            if ($scope.isJson(str)) {
+                var json = JSON.stringify(JSON.parse(str), undefined, 2);
+                console.log("json ", json);
+                return json;
+            }
+            return str;
+        }
 
 
     };
