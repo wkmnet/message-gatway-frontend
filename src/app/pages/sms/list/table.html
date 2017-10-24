@@ -10,6 +10,7 @@
             <th class="align-left">内容</th>
             <th class="align-left">状态</th>
             <th class="align-left">响应</th>
+            <th class="align-left">操作</th>
         </tr>
         </thead>
         <tr ng-repeat="item in data.list">
@@ -21,6 +22,7 @@
             <td class="align-left">{{item.content}}</td>
             <td class="align-left">{{item.status == 0 ? '提交成功':item.status == 1 ? '成功':item.status == 2 ? '失败':'-'}}</td>
             <td class="align-left"><pre>{{strToJson(item.channel_no,item.response)}}</pre></td>
+            <td><a href="javascript:void(0);" ng-click="sendAgain($index)">重新发送</a></td>
         </tr>
         <tfoot>
         <tr>

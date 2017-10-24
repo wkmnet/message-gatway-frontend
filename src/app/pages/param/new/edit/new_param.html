@@ -2,7 +2,10 @@
 
     <div class="form-group">
         <label for="channel_no">短信通道</label>
-        <input type="text" class="form-control" id="channel_no" ng-model="param.channel_no" readonly>
+        <select class="form-control" id="channel_no" ng-model="param.channel_no" title="平台状态" data-style="btn-primary" data-container="body" selectpicker>
+            <option></option>
+            <option value="{{item.channel_no}}" data-ng-repeat="item in channels.list">{{item.id}} {{item.channel_no}} {{item.channel_name}}</option>
+        </select>
     </div>
     <div class="form-group">
         <label for="param_key">参数名称</label>

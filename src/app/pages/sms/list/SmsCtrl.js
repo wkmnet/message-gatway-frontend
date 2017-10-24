@@ -90,7 +90,24 @@
                 return json;
             }
             return str;
-        }
+        };
+
+        $scope.sendAgain = function (index) {
+            console.log("index : ",index);
+            cfpLoadingBar.start();
+            $http.post("/api/send/code",$scope.data.list[index]).success(function (resp) {
+                if (resp.success) {
+                    toastr.success("重新发送短信提交成功!");
+                } else {
+                    toastr.error(resp.message);
+                }
+                cfpLoadingBar.complete();
+            }).error(function (resp, status) {
+                console.log("status:", status);
+                toastr.error(resp);
+                cfpLoadingBar.complete();
+            });
+        };
 
 
     };
