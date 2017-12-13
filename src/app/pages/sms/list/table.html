@@ -7,9 +7,10 @@
             <th class="align-left">通道</th>
             <th class="align-left">国际码</th>
             <th class="align-left">手机号</th>
-            <th class="align-left">内容</th>
+            <th class="align-left">平台号</th>
             <th class="align-left">状态</th>
-            <th class="align-left">响应</th>
+            <th class="align-left">签名</th>
+            <th class="align-left">短信ID</th>
             <th class="align-left">操作</th>
         </tr>
         </thead>
@@ -19,10 +20,15 @@
             <td class="align-left">{{item.channel_no}}</td>
             <td class="align-left">{{item.internal_code}}</td>
             <td class="align-left">{{item.phone}}</td>
-            <td class="align-left">{{item.content}}</td>
-            <td class="align-left">{{item.status == 0 ? '提交成功':item.status == 1 ? '成功':item.status == 2 ? '失败':'-'}}</td>
-            <td class="align-left"><pre>{{strToJson(item.channel_no,item.response)}}</pre></td>
-            <td><a href="javascript:void(0);" ng-click="sendAgain($index)">重新发送</a></td>
+            <td class="align-left">{{item.platform_no}}</td>
+            <td class="align-left">{{item.status == 0 ? '发送中':item.status == 1 ? '发送成功':item.status == 2 ? '发送失败':'-'}}</td>
+            <!--<td class="align-left"><pre>{{strToJson(item.channel_no,item.response)}}</pre></td>-->
+            <td class="align-left">{{item.sign}}</td>
+            <td class="align-left">{{item.msg_id}}</td>
+            <td><a href="javascript:void(0);" ng-click="sendAgain($index)">重新发送</a>
+                <a href="javascript:void(0);" ng-click="open($index)">详情</a>
+            </td>
+
         </tr>
         <tfoot>
         <tr>

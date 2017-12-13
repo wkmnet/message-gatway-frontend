@@ -1,4 +1,4 @@
-<div class="widgets">
+<div class="widgets" ng-show="openList">
     <div class="row">
         <div class="col-md-4">
             <div class="form-group">
@@ -56,4 +56,76 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="widgets" ng-hide="openList">
+    <table class="table">
+        <tr>
+            <td class="align-right">序号</td>
+            <td class="align-left">{{sms.id}} </td>
+        </tr>
+        <tr>
+            <td class="align-right">短信编号</td>
+            <td class="align-left">{{sms.sms_no}} </td>
+        </tr>
+        <tr>
+            <td class="align-right">通道</td>
+            <td class="align-left">{{sms.channel_no}} </td>
+        </tr>
+        <tr>
+            <td class="align-right">国际码</td>
+            <td class="align-left">{{sms.internal_code}} </td>
+        </tr>
+        <tr>
+            <td class="align-right">手机号</td>
+            <td class="align-left">{{sms.phone}} </td>
+        </tr>
+        <tr>
+            <td class="align-right">状态</td>
+            <td class="align-left">{{sms.status == 0 ? '发送中':sms.status == 1 ? '发送成功':sms.status == 2 ? '发送失败':'-'}}</td>
+        </tr>
+        <tr>
+            <td class="align-right">签名</td>
+            <td class="align-left">{{sms.sign}} </td>
+        </tr>
+        <tr>
+            <td class="align-right">验证码</td>
+            <td class="align-left">{{sms.code}} </td>
+        </tr>
+        <tr>
+            <td class="align-right">内容</td>
+            <td class="align-left">{{sms.content}} </td>
+        </tr>
+        <tr>
+            <td class="align-right">短信ID</td>
+            <td class="align-left">{{sms.msg_id}} </td>
+        </tr>
+        <tr>
+            <td class="align-right">响应</td>
+            <td class="align-left"><pre>{{strToJson(sms.channel_no,sms.response)}}</pre></td>
+        </tr>
+        <tr>
+            <td class="align-right">平台号</td>
+            <td class="align-left">{{sms.platform_no}} </td>
+        </tr>
+        <tr>
+            <td class="align-right">用户IP</td>
+            <td class="align-left">{{sms.user_ip}} </td>
+        </tr>
+        <tr>
+            <td class="align-right">用户代理</td>
+            <td class="align-left">{{sms.user_agent}} </td>
+        </tr>
+        <tr>
+            <td class="align-right">创建时间</td>
+            <td class="align-left">{{sms.created_time}} </td>
+        </tr>
+
+        <tfoot>
+        <div class="align-left">
+            <button type="button" class="btn btn-primary btn-sm" ng-click="goBack()">返回</button>
+        </div>
+        </tfoot>
+    </table>
+
 </div>

@@ -22,6 +22,7 @@
         $scope.param = {"page": 1, "page_size": $scope.tablePageSize};
         $scope.data = {};
         $scope.channels = {};
+        $scope.openList = true;
 
         $scope.getChannels = function () {
             $http.get("/api/channel").success(function (response) {
@@ -107,6 +108,17 @@
                 toastr.error(resp);
                 cfpLoadingBar.complete();
             });
+        };
+
+        $scope.sms={};
+        $scope.open = function(index){
+            $scope.sms = $scope.data.list[index];
+            
+            $scope.openList = false;
+        };
+
+        $scope.goBack = function(){
+            $scope.openList = true;
         };
 
 
