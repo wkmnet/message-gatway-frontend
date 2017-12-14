@@ -1,0 +1,27 @@
+<div class="widgets">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="template_no">短信模板编号</label>
+                <input type="text" ng-model="param.template_no" class="form-control" id="template_no" placeholder="">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="template">短信模板</label>
+                <input type="text" ng-model="param.template" class="form-control" id="template" placeholder="">
+            </div>
+        </div>
+        <div class="col-md-2">
+            <label></label>
+            <div class="button-wrapper"><button type="button" ng-click="queryBtn()" class="btn btn-primary  btn-sm">查询</button></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div ba-panel ba-panel-title="短信模板列表" ba-panel-class="with-scroll">
+                <div include-with-scope="app/pages/template/list/table.html"></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -24,6 +24,9 @@
     'BlurAdmin.pages.channel',
     'BlurAdmin.pages.param',
     'BlurAdmin.pages.sms',
+    'BlurAdmin.pages.sign',
+    'BlurAdmin.pages.template',
+      
   ])
       .config(routeConfig);
 

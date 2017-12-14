@@ -1,0 +1,27 @@
+<div class="widgets">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="sign_no">签名编号</label>
+                <input type="text" ng-model="param.sign_no" class="form-control" id="sign_no" placeholder="">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="sign">短信签名</label>
+                <input type="text" ng-model="param.sign" class="form-control" id="sign" placeholder="">
+            </div>
+        </div>
+        <div class="col-md-2">
+            <label></label>
+            <div class="button-wrapper"><button type="button" ng-click="queryBtn()" class="btn btn-primary  btn-sm">查询</button></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div ba-panel ba-panel-title="签名列表" ba-panel-class="with-scroll">
+                <div include-with-scope="app/pages/sign/list/table.html"></div>
+            </div>
+        </div>
+    </div>
+</div>
