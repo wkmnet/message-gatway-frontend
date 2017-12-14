@@ -2,22 +2,20 @@
     <table class="table table-hover">
         <thead>
         <tr>
-            <th class="align-right">#</th>
-            <th class="align-right">参数名称</th>
-            <th class="align-right">关联通道</th>
-            <th class="align-right">参数值</th>
-            <th class="align-right">描述</th>
-            <th class="align-right">操作</th>
+            <th class="align-left">#</th>
+            <th class="align-left">关联通道</th>
+            <th class="align-left">描述</th>
+            <th class="align-left">参数值</th>
+            <th class="align-left">操作</th>
         </tr>
         </thead>
         <tr ng-repeat="item in data.list">
-            <td class="align-right">{{item.id}}</td>
-            <td class="align-right">{{item.param_key}}</td>
-            <td class="align-right">{{item.channel_no}}</td>
-            <td class="align-right">{{item.param_value}}</td>
-            <td class="align-right">{{item.description}}</td>
-            <td class="align-right">
-                <a href="javascript:void(0);" ng-click="delete(item.id,item.param_key)">删除</a>
+            <td class="align-left">{{item.id}}</td>
+            <td class="align-left">{{item.channel_no}}</td>
+            <td class="align-left">{{item.description}}</td>
+            <td class="align-left"><textarea class="form-control">{{item.param_value}}</textarea></td>
+            <td class="align-left">
+                <a href="javascript:void(0);" ng-click="delete(item.id,item.channel_no)">删除</a>
                 <a href="#/param/new/edit/{{item.id}}">编辑</a>
             </td>
         </tr>

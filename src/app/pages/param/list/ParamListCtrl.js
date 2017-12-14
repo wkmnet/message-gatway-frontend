@@ -42,7 +42,6 @@
             cfpLoadingBar.start();
             var url = "/api/param?page=" + ($scope.param.page || "") +
                 "&page_size=" + ($scope.param.page_size || "") +
-                "&param_key=" + ($scope.param.param_key || "") +
                 "&channel_no=" + ($scope.param.channel_no || "") +
                 "&description=" + ($scope.param.description || "");
             $http.get(url).success(function(resp){
@@ -67,7 +66,7 @@
         $scope.queryParam();
     
         $scope.delete = function(id,name){
-            commonService.confirm($scope,'确认对话框','您确定要删除 ' + name +' 参数吗？').then(function(result){
+            commonService.confirm($scope,'确认对话框','您确定要删除渠道 ' + name +' 的参数吗？').then(function(result){
                 console.log("result...",result);
                 if(result == 'ok'){
                     $scope.deleteParam(id);

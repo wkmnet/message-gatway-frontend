@@ -42,10 +42,6 @@
                 toastr.error("请选择短信通道！");
                 return;
             }
-            if (!$scope.param.param_key) {
-                toastr.error("参数名为空！");
-                return;
-            }
             if (!$scope.param.param_value) {
                 toastr.error("参数值为空！");
                 return;
