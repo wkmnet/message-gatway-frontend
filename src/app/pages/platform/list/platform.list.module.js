@@ -13,15 +13,15 @@
 (function () {
     'use strict';
 
-    angular.module("BlurAdmin.pages.agency.list",[]).config(routeConfig);
+    angular.module("BlurAdmin.pages.platform.list",[]).config(routeConfig);
 
     /** @ngInject */
     function routeConfig($stateProvider) {
         $stateProvider
-            .state('agency.list', {
+            .state('platform.list', {
                 url: '/list',
-                templateUrl: 'app/pages/agency/list/list.html',
-                controller: "AgencyListCtrl",
+                templateUrl: 'app/pages/platform/list/list.html',
+                controller: "PlatformListCtrl",
                 title: '平台列表',
                 sidebarMeta: {
                     icon: 'ion-ios-pulse',

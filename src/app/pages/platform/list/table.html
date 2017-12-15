@@ -14,17 +14,17 @@
         </thead>
         <tr ng-repeat="item in data.list">
             <td class="align-right">{{item.id}}</td>
-            <td class="align-right">{{item.agency_no}}</td>
-            <td class="align-right">{{item.agency_name}}</td>
-            <td class="align-right">{{item.agency_key}}</td>
+            <td class="align-right">{{item.platform_no}}</td>
+            <td class="align-right">{{item.platform_name}}</td>
+            <td class="align-right">{{item.platform_key}}</td>
             <td class="align-right">{{item.expire_age}}</td>
             <td class="align-right">{{item.created_time}}</td>
             <td class="align-right">{{item.status == 0?"创建":item.status == 1?"正常":item.status == 2?"禁用":"-"}}
             </td>
             <td class="align-right">
                 <a href="javascript:void(0)" ng-click="switchStatus({{item.id}},{{item.status == 1?2:1}})">{{item.status == 1?"禁用":"启用"}}</a>
-                <a href="javascript:void(0);" ng-click="delete(item.id,item.agency_name)">{{item.status == 1 ? '' : '删除'}}</a>
-                <a href="#/agency/new/edit/{{item.id}}">{{item.status == 1 ? '' : '编辑'}}</a>
+                <a href="javascript:void(0);" ng-click="delete(item.id,item.platform_name)">{{item.status == 1 ? '' : '删除'}}</a>
+                <a href="#/platform/new/edit/{{item.id}}">{{item.status == 1 ? '' : '编辑'}}</a>
             </td>
         </tr>
         <tfoot>
@@ -44,7 +44,7 @@
                             previous-text="上一页"
                             next-text="下一页"
                             num-pages="data.totalPage"
-                            ng-change="queryAgency()"
+                            ng-change="queryPlatform()"
                             items-per-page="data.pageSize">
                     </uib-pagination>
                 </div>

@@ -12,23 +12,22 @@
 (function(){
     'use strict'
 
-    angular.module('BlurAdmin.pages.agency.list')
-        .controller('AgencyListCtrl', AgencyListCtrl);
+    angular.module('BlurAdmin.pages.platform.list')
+        .controller('PlatformListCtrl', PlatformListCtrl);
 
     /** @ngInject */
-    function AgencyListCtrl($scope, $http, toastr,cfpLoadingBar,commonService) {
+    function PlatformListCtrl($scope, $http, toastr,cfpLoadingBar,commonService) {
         $scope.tablePageSize = 5;
         $scope.param = {"page":1,"page_size":$scope.tablePageSize};
-        
 
         $scope.data = {};
 
-        $scope.queryAgency = function () {
+        $scope.queryPlatform = function () {
             cfpLoadingBar.start();
-            var url = "/api/agency?page=" + ($scope.param.page || "") + 
+            var url = "/api/platform?page=" + ($scope.param.page || "") + 
                 "&page_size=" + ($scope.param.page_size || "") +
-                "&agency_no=" + ($scope.param.agency_no || "") + 
-                "&agency_name=" + ($scope.param.agency_name || "") + 
+                "&platform_no=" + ($scope.param.platform_no || "") + 
+                "&platform_name=" + ($scope.param.platform_name || "") + 
                 "&status=" + ($scope.param.status || "");
             $http.get(url).success(function(resp){
                 if(resp.success){
@@ -48,29 +47,24 @@
 
         $scope.queryBtn = function(){
             $scope.param.page = 1;
-            $scope.queryAgency();
+            $scope.queryPlatform ();
         }
-
-       /* $scope.page = function (p) {
-            $scope.param.page = p;
-            $scope.queryAgency();
-        };
-*/
-        $scope.queryAgency();
+        
+        $scope.queryPlatform ();
 
         $scope.delete = function(id,name){
-            commonService.confirm($scope,'确认对话框','您确定要删除 ' + name +' 短信通道吗？').then(function(result){
+            commonService.confirm($scope,'确认对话框','您确定要删除 ' + name +' 平台吗？').then(function(result){
                 console.log("result...",result);
                 if(result == 'ok'){
-                    $scope.deleteAgency(id);
+                    $scope.deletePlatform (id);
                 }
             });
         };
-        $scope.deleteAgency = function (id) {
-            $http.delete("/api/agency/" + id).success(function(resp){
+        $scope.deletePlatform = function (id) {
+            $http.delete("/api/platform/" + id).success(function(resp){
                 if(resp.success){
                     toastr.success('数据删除成功!');
-                    $scope.queryAgency();
+                    $scope.queryPlatform();
                 } else {
                     toastr.error(resp.message);
                 }
@@ -83,9 +77,9 @@
         $scope.switchStatus = function(id,status){
             console.log("id:",id);
             console.log("status",status);
-            $http.put("/api/agency/" + id,{"status":status}).success(function(response){
+            $http.put("/api/platform/" + id,{"status":status}).success(function(response){
                 if(response.success){
-                    $scope.queryAgency();
+                    $scope.queryPlatform ();
                 }else{
                     toastr.error(response.message)
                 }
@@ -96,10 +90,10 @@
 
         };
 
-        $scope.getAgencyNo = function(){
-            $http.get("/api/agency/getAgencyNo").success(function(response){
+        $scope.getPlatformNo = function(){
+            $http.get("/api/platform/getPlatformNo").success(function(response){
                 if(response.success){
-                    $scope.agency.agency_no=response.data;
+                    $scope.platform.platform_no=response.data;
                 }else{
                     toastr.error(response.message)
                 }
@@ -109,18 +103,7 @@
                 toastr.error(resp);
             });
         };
-
-     /*   $scope.btns = [];
-        $scope.createBtn = function(){
-            $scope.btns = [];
-            //var num = Math.ceil($scope.data.totalRow /  $scope.data.pageSize);
-            var num = $scope.data.totalPage;
-            console.log("num : " + num);
-            for (var i = 0;i< num;i++) {
-                $scope.btns.push(i);
-            }
-            console.log("btns : " + $scope.btns);
-        };*/
+        
     }
 
 })();

@@ -13,33 +13,33 @@
 (function () {
     'use strict';
 
-    angular.module("BlurAdmin.pages.agency.new",[]).config(routeConfig);
+    angular.module("BlurAdmin.pages.platform.new",[]).config(routeConfig);
 
     /** @ngInject */
     function routeConfig($stateProvider,$urlRouterProvider) {
         $stateProvider
-            .state('agency.new', {
+            .state('platform.new', {
                 url: '/new',
                 template: '<ui-view></ui-view>',
-                controller: "NewAgencyCtrl",
+                controller: "NewPlatformCtrl",
                 title: '新建平台',
                 sidebarMeta: {
                     icon: 'ion-ios-pulse',
                     order: 100,
                 },
-            }).state('agency.new.create', {
+            }).state('platform.new.create', {
                 url: '/create',
-                templateUrl: 'app/pages/agency/new/agency.html',
+                templateUrl: 'app/pages/platform/new/platform.html',
                 title: '新建平台',
-                controller: "NewAgencyCtrl",
-                controllerAs: "newAgencyCtrl"
-            }).state('agency.new.edit', {
-                url: '/edit/:agency',
-                templateUrl: 'app/pages/agency/new/edit/agency.html',
+                controller: "NewPlatformCtrl",
+                controllerAs: "newplatformCtrl"
+            }).state('platform.new.edit', {
+                url: '/edit/:platform',
+                templateUrl: 'app/pages/platform/new/edit/platform.html',
                 title: '编辑平台',
-                controller: "EditAgencyCtrl",
-                controllerAs: "editAgencyCtrl"
+                controller: "EditPlatformCtrl",
+                controllerAs: "editPlatformCtrl"
             });
-        $urlRouterProvider.when('/agency/new','/agency/new/create');
+        $urlRouterProvider.when('/platform/new','/platform/new/create');
     }
 })();

@@ -5,22 +5,22 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.agency', [
-    'BlurAdmin.pages.agency.list',
-    'BlurAdmin.pages.agency.new',
+  angular.module('BlurAdmin.pages.platform', [
+    'BlurAdmin.pages.platform.list',
+    'BlurAdmin.pages.platform.new',
   ]).config(routeConfig);
 
   /** @ngInject */
   function routeConfig($stateProvider) {
     $stateProvider
-        .state('agency', {
-          url: '/agency',
+        .state('platform', {
+          url: '/platform',
           template : '<ui-view></ui-view>',
           abstract: true,
           title: '平台管理',
           sidebarMeta: {
             icon: 'ion-monitor',
-            order: 50,
+            order: 49,
           },
         });
   }

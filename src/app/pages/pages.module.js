@@ -12,7 +12,6 @@
     // 'BlurAdmin.pages.ui',
     //'BlurAdmin.pages.components',
     'BlurAdmin.pages.user',
-    //'BlurAdmin.pages.agency',
     //'BlurAdmin.pages.trade',
     //'BlurAdmin.pages.message',
     'BlurAdmin.pages.config',
@@ -26,6 +25,7 @@
     'BlurAdmin.pages.sms',
     'BlurAdmin.pages.sign',
     'BlurAdmin.pages.template',
+    'BlurAdmin.pages.platform',
       
   ])
       .config(routeConfig);
