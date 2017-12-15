@@ -5,6 +5,7 @@
             <th class="align-right">#</th>
             <th class="align-right">系统配置KEY</th>
             <th class="align-right">系统配置VALUE</th>
+            <th class="align-right">描述</th>
             <th class="align-right">操作</th>
         </tr>
         </thead>
@@ -12,6 +13,7 @@
             <td class="align-right">{{item.id}}</td>
             <td class="align-right">{{item.config_key}}</td>
             <td class="align-right">{{item.config_value}}</td>
+            <td class="align-right">{{item.description}}</td>
             <td class="align-right">
                 <a href="javascript:void(0);" ng-click="delete(item.id,item.config_key)">{{currentUser.role == 'admin' ? '删除' : item.id == currentUser.id ? '删除':''}}</a>
                 <a href="#/config/new/edit/{{item.id}}">{{currentUser.role == 'admin' ? '编辑' : item.id == currentUser.id ? '编辑':''}}</a>
