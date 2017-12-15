@@ -44,7 +44,6 @@
             var url = "/api/sms?page=" + ($scope.param.page || "") +
                 "&page_size=" + ($scope.param.page_size || "") +
                 "&channel_no=" + ($scope.param.channel_no || "") +
-                "&sms_no=" + ($scope.param.sms_no || "") +
                 "&status=" + ($scope.param.status || "") +
                 "&country=" + ($scope.param.country || "") +
                 "&phone=" + ($scope.param.phone || "");

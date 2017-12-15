@@ -65,10 +65,6 @@
             <td class="align-left">{{sms.id}} </td>
         </tr>
         <tr>
-            <td class="align-right">短信编号</td>
-            <td class="align-left">{{sms.sms_no}} </td>
-        </tr>
-        <tr>
             <td class="align-right">通道</td>
             <td class="align-left">{{sms.channel_no}} </td>
         </tr>
@@ -81,28 +77,44 @@
             <td class="align-left">{{sms.phone}} </td>
         </tr>
         <tr>
-            <td class="align-right">状态</td>
-            <td class="align-left">{{sms.status == 0 ? '发送中':sms.status == 1 ? '发送成功':sms.status == 2 ? '发送失败':'-'}}</td>
+            <td class="align-right">短信签名编号</td>
+            <td class="align-left">{{sms.sms_sign_no}} </td>
         </tr>
         <tr>
-            <td class="align-right">签名</td>
-            <td class="align-left">{{sms.sign}} </td>
+            <td class="align-right">短信签名</td>
+            <td class="align-left">{{sms.sms_sign}} </td>
         </tr>
         <tr>
-            <td class="align-right">验证码</td>
-            <td class="align-left">{{sms.code}} </td>
+            <td class="align-right">短信模板编号</td>
+            <td class="align-left">{{sms.sms_template_no}} </td>
         </tr>
         <tr>
-            <td class="align-right">内容</td>
+            <td class="align-right">短信模板</td>
+            <td class="align-left">{{sms.sms_template}} </td>
+        </tr>
+        <tr>
+            <td class="align-right">短信模板</td>
+            <td class="align-left">{{sms.sms_template}} </td>
+        </tr>
+        <tr>
+            <td class="align-right">短信内容</td>
             <td class="align-left">{{sms.content}} </td>
         </tr>
         <tr>
             <td class="align-right">短信ID</td>
-            <td class="align-left">{{sms.msg_id}} </td>
+            <td class="align-left">{{sms.message_id}} </td>
         </tr>
         <tr>
-            <td class="align-right">响应</td>
-            <td class="align-left"><pre>{{strToJson(sms.channel_no,sms.response)}}</pre></td>
+            <td class="align-right">状态</td>
+            <td class="align-left">{{sms.status == 0 ? '发送中':sms.status == 1 ? '发送成功':sms.status == 2 ? '发送失败':'-'}}</td>
+        </tr>
+        <tr>
+            <td class="align-right">请求内容</td>
+            <td class="align-left">{{sms.request}} </td>
+        </tr>
+        <tr>
+            <td class="align-right">响应内容</td>
+            <td class="align-left">{{sms.response}} </td>
         </tr>
         <tr>
             <td class="align-right">平台号</td>
@@ -119,6 +131,10 @@
         <tr>
             <td class="align-right">创建时间</td>
             <td class="align-left">{{sms.created_time}} </td>
+        </tr>
+        <tr>
+            <td class="align-right">备注</td>
+            <td class="align-left">{{sms.remark}} </td>
         </tr>
 
         <tfoot>
