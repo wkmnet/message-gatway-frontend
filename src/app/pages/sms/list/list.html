@@ -103,7 +103,7 @@
         </tr>
         <tr>
             <td class="align-right">状态</td>
-            <td class="align-left">{{sms.status == 0 ? '发送中':sms.status == 1 ? '发送成功':sms.status == 2 ? '发送失败':'-'}}</td>
+            <td class="align-left">{{sms.status == 0 ? '提交成功':sms.status == 1 ? '发送成功':sms.status == 2 ? '发送失败':sms.status == 3 ? '提交失败':'-'}}</td>
         </tr>
         <tr>
             <td class="align-right">请求内容</td>
