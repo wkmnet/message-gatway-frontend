@@ -17,8 +17,8 @@
         </div>
         <div class="col-md-4">
             <div class="form-group">
-                <label for="sms_no">短信编号</label>
-                <input type="text" ng-model="param.sms_no" class="form-control" id="sms_no" placeholder="">
+                <label for="message_id">短信ID</label>
+                <input type="text" ng-model="param.message_id" class="form-control" id="message_id" placeholder="">
             </div>
         </div>
     </div>
@@ -38,9 +38,10 @@
                 <label for="status">状态</label>
                 <select class="form-control" id="status" ng-model="param.status" title="状态" data-style="btn-primary" data-container="body" selectpicker>
                     <option></option>
-                    <option value="0">发送中</option>
-                    <option value="1">成功</option>
-                    <option value="2">失败</option>
+                    <option value="0">提交成功</option>
+                    <option value="3">提交失败</option>
+                    <option value="1">发送成功</option>
+                    <option value="2">发送失败</option>
                 </select>
             </div>
         </div>
@@ -93,12 +94,8 @@
             <td class="align-left">{{sms.sms_template}} </td>
         </tr>
         <tr>
-            <td class="align-right">短信模板</td>
-            <td class="align-left">{{sms.sms_template}} </td>
-        </tr>
-        <tr>
             <td class="align-right">短信内容</td>
-            <td class="align-left">{{sms.content}} </td>
+            <td class="align-left">{{sms.sms_content}} </td>
         </tr>
         <tr>
             <td class="align-right">短信ID</td>
@@ -110,7 +107,7 @@
         </tr>
         <tr>
             <td class="align-right">请求内容</td>
-            <td class="align-left">{{sms.request}} </td>
+            <td class="align-left"><textarea class="form-control">{{sms.request}} </textarea></td>
         </tr>
         <tr>
             <td class="align-right">响应内容</td>

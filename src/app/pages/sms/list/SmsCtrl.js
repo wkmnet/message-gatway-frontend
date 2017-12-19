@@ -46,6 +46,7 @@
                 "&channel_no=" + ($scope.param.channel_no || "") +
                 "&status=" + ($scope.param.status || "") +
                 "&country=" + ($scope.param.country || "") +
+                "&message_id=" + ($scope.param.message_id || "") +
                 "&phone=" + ($scope.param.phone || "");
             $http.get(url).success(function (resp) {
                 if (resp.success) {

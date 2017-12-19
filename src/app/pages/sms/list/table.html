@@ -20,17 +20,17 @@
             <td class="align-left">{{item.internal_code}}</td>
             <td class="align-left">{{item.phone}}</td>
             <td class="align-left">{{item.platform_no}}</td>
-            <td class="align-left">{{item.status == 0 ? '发送中':item.status == 1 ? '发送成功':item.status == 2 ? '发送失败':'-'}}</td>
+            <td class="align-left">{{item.status == 0 ? '提交成功':item.status == 1 ? '发送成功':item.status == 2 ? '发送失败':item.status == 3 ? '提交失败':'-'}}</td>
             <!--<td class="align-left"><pre>{{strToJson(item.channel_no,item.response)}}</pre></td>-->
             <td class="align-left">{{item.sms_sign}}</td>
-            <td><a href="javascript:void(0);" ng-click="sendAgain($index)">重新发送</a>
+            <td>
                 <a href="javascript:void(0);" ng-click="open($index)">详情</a>
             </td>
 
         </tr>
         <tfoot>
         <tr>
-            <td colspan="8" class="text-center">
+            <td colspan="9" class="text-center">
                 <div ng-if="data.totalPage">
                     <uib-pagination
                             total-items="data.totalRow"
