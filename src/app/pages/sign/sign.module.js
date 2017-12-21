@@ -27,7 +27,7 @@
                 abstract: true,
                 title: '短信签名管理',
                 sidebarMeta: {
-                    icon: 'ion-ios-drag',
+                    icon: 'icon ion-key',
                     order: 25,
                 },
             });

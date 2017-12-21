@@ -27,7 +27,7 @@
                 abstract: true,
                 title: '短信模板管理',
                 sidebarMeta: {
-                    icon: 'ion-ios-drag',
+                    icon: 'icon ion-compose',
                     order: 26,
                 },
             });
