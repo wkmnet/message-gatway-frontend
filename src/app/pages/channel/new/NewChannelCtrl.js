@@ -46,10 +46,10 @@
                 toastr.error("短信名称为空！");
                 return;
             }
-            if (!$scope.channel.class_name) {
+         /*   if (!$scope.channel.class_name) {
                 toastr.error("关联实现类不能为空！");
                 return;
-            }
+            }*/
             var reg = new RegExp("^(\\d|[1-9]\\d|100)$");
             if ($scope.channel.level) {
                 if (!reg.test($scope.channel.level)) {
@@ -60,7 +60,7 @@
             $scope.saveChannel();
         };
         
-        $scope.getImplementClass = function () {
+    /*    $scope.getImplementClass = function () {
             $http.get("/api/channel/getImplementClass").success(function(response){
                 if(response.success){
                     $scope.classes = response.data;
@@ -72,7 +72,7 @@
                 toastr.error(resp);
             });
         };
-        $scope.getImplementClass();
+        $scope.getImplementClass();*/
 
     };
 
