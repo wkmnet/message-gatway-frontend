@@ -1,0 +1,24 @@
+<form>
+    <div class="form-group">
+        <label for="signNo">短信签名</label>
+        <select class="form-control" id="signNo" ng-model="notice.signNo" title="平台状态" data-style="btn-primary" data-container="body" selectpicker>
+            <option></option>
+            <option value="{{item.sign_no}}" data-ng-repeat="item in signs.list">{{item.id}} {{item.sign_no}} {{item.sign}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="phones">手机号（英文逗号隔开）</label>
+        <textarea class="form-control" id="phones" ng-model="notice.phones" placeholder="手机号码"/>
+    </div>
+    <div class="form-group">
+        <label for="content">短信内容</label>
+        <textarea class="form-control" id="content" ng-model="notice.content" placeholder="短信内容"/>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="button-wrapper">
+                <button type="button" ng-click="checkNotice()" class="btn btn-success">发送</button>
+            </div>
+        </div>
+    </div>
+</form>

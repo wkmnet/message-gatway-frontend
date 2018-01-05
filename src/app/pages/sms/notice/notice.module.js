@@ -13,19 +13,19 @@
 (function () {
     'use strict';
 
-    angular.module('BlurAdmin.pages.sms', ['BlurAdmin.pages.sms.list','BlurAdmin.pages.sms.notice']).config(routeConfig);
+    angular.module('BlurAdmin.pages.sms.notice', []).config(routeConfig);
 
     /** @ngInject */
     function routeConfig($stateProvider) {
         $stateProvider
-            .state('sms', {
-                url: '/sms',
-                template : '<ui-view></ui-view>',
-                abstract: true,
-                title: '短信管理',
+            .state('sms.notice', {
+                url: '/notice',
+                templateUrl: 'app/pages/sms/notice/notice.html',
+                controller:'SmsNoticeCtrl',
+                title: '发送通知短信',
                 sidebarMeta: {
-                    icon: 'ion-email',
-                    order: 0,
+                    icon: 'ion-monitor',
+                    order: 50,
                 },
             });
     }
