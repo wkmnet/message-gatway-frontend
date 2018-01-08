@@ -3,7 +3,7 @@
         <div class="col-md-4">
             <div class="form-group">
                 <label for="channel_no">短信通道</label>
-                <select class="form-control" id="channel_no" ng-model="param.channel_no" title="平台状态" data-style="btn-primary" data-container="body" selectpicker>
+                <select class="form-control" id="channel_no" ng-model="param.channel_no" title="短信通道" data-style="btn-primary" data-container="body" selectpicker>
                     <option></option>
                     <option value="{{item.channel_no}}" data-ng-repeat="item in channels.list">{{item.id}} {{item.channel_no}} {{item.channel_name}}</option>
                 </select>
@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="form-group">
                 <label for="country">区域</label>
                 <select class="form-control" id="country" ng-model="param.country" title="区域" data-style="btn-primary" data-container="body" selectpicker>
@@ -33,7 +33,7 @@
                 </select>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="form-group">
                 <label for="status">状态</label>
                 <select class="form-control" id="status" ng-model="param.status" title="状态" data-style="btn-primary" data-container="body" selectpicker>
@@ -42,6 +42,15 @@
                     <option value="3">提交失败</option>
                     <option value="1">发送成功</option>
                     <option value="2">发送失败</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="platform_no">平台号</label>
+                <select class="form-control" id="platform_no" ng-model="param.platform_no" title="平台号" data-style="btn-primary" data-container="body" selectpicker>
+                    <option></option>
+                    <option value="{{item.platform_no}}" data-ng-repeat="item in platforms.list">{{item.id}} {{item.platform_no}} {{item.platform_name}}</option>
                 </select>
             </div>
         </div>

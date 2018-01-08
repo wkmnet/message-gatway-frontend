@@ -22,6 +22,7 @@
         $scope.param = {"page": 1, "page_size": $scope.tablePageSize};
         $scope.data = {};
         $scope.channels = {};
+        $scope.platforms = {};
         $scope.openList = true;
 
         $scope.getChannels = function () {
@@ -39,11 +40,27 @@
         };
         $scope.getChannels();
 
+        $scope.getPlatforms = function () {
+            $http.get("/api/platform").success(function (response) {
+                if (response.success) {
+                    $scope.platforms = response.data;
+                    console.log("platforms: ", $scope.platforms);
+                } else {
+                    toastr.error(resp.message);
+                }
+            }).error(function (resp, status) {
+                console.log("status:", status);
+                toastr.error(resp);
+            });
+        };
+        $scope.getPlatforms();
+
         $scope.querySms = function () {
             cfpLoadingBar.start();
             var url = "/api/sms?page=" + ($scope.param.page || "") +
                 "&page_size=" + ($scope.param.page_size || "") +
                 "&channel_no=" + ($scope.param.channel_no || "") +
+                "&platform_no=" + ($scope.param.platform_no || "") +
                 "&status=" + ($scope.param.status || "") +
                 "&country=" + ($scope.param.country || "") +
                 "&message_id=" + ($scope.param.message_id || "") +
@@ -93,7 +110,7 @@
             return str;
         };
 
-        $scope.sendAgain = function (index) {
+     /*   $scope.sendAgain = function (index) {
             console.log("index : ",index);
             cfpLoadingBar.start();
             $http.post("/api/send/code",$scope.data.list[index]).success(function (resp) {
@@ -108,7 +125,7 @@
                 toastr.error(resp);
                 cfpLoadingBar.complete();
             });
-        };
+        };*/
 
         $scope.sms={};
         $scope.open = function(index){
