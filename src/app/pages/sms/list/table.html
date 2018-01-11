@@ -10,6 +10,7 @@
             <th class="align-left">平台号</th>
             <th class="align-left">状态</th>
             <th class="align-left">签名</th>
+            <th class="align-left">创建时间</th>
             <th class="align-left">操作</th>
         </tr>
         </thead>
@@ -23,6 +24,7 @@
             <td class="align-left">{{item.status == 0 ? '提交成功':item.status == 1 ? '发送成功':item.status == 2 ? '发送失败':item.status == 3 ? '提交失败':'-'}}</td>
             <!--<td class="align-left"><pre>{{strToJson(item.channel_no,item.response)}}</pre></td>-->
             <td class="align-left">{{item.sms_sign}}</td>
+            <td class="align-left">{{item.created_time}}</td>
             <td>
                 <a href="javascript:void(0);" ng-click="open($index)">详情</a>
             </td>

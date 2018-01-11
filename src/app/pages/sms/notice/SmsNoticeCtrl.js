@@ -26,7 +26,7 @@
             $http.post("/api/notice", $scope.notice).success(function (response) {
                 console.log("response:", response);
                 if (response.success) {
-                    toastr.success('短信发送成功!');
+                    toastr.success('提交成功，短信处理中!');
                 } else {
                     toastr.error(response.message);
                 }

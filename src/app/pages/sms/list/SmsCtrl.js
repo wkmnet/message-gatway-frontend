@@ -64,6 +64,8 @@
                 "&status=" + ($scope.param.status || "") +
                 "&country=" + ($scope.param.country || "") +
                 "&message_id=" + ($scope.param.message_id || "") +
+                "&start=" + ($scope.param.start || "") +
+                "&end=" + ($scope.param.end || "") +
                 "&phone=" + ($scope.param.phone || "");
             $http.get(url).success(function (resp) {
                 if (resp.success) {
@@ -138,6 +140,27 @@
             $scope.openList = true;
         };
 
+        $scope.selectDate = function () {
+            $scope.showDatePicker = !$scope.showDatePicker;
+        }
+
+        $scope.changeDate = function (modelName, newDate) {
+            console.log("modelName:" + modelName + "---newDate:" + newDate);
+            if("start" == modelName){
+                $scope.param.start = newDate.format("YYYY-MM-DD");
+            } else {
+                $scope.param.end = newDate.format("YYYY-MM-DD");
+            }
+        }
+
+        $scope.clearDate = function () {
+            $scope.param.start = "";
+            $scope.param.end = "";
+        }
+
+        $scope.closeDatePicker = function () {
+            $scope.showDatePicker = false;
+        }
 
     };
 
