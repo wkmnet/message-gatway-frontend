@@ -1,0 +1,23 @@
+<form>
+    <div class="form-group">
+        <label for="channel_no">通道</label>
+        <select class="form-control" id="channel_no" ng-model="param.channel_no" title="平台状态" data-style="btn-primary"
+                data-container="body" selectpicker>
+            <option></option>
+            <option value="{{item.channel_no}}" data-ng-repeat="item in channels.list">{{item.id}} {{item.channel_no}}
+                {{item.channel_name}}
+            </option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="file">选择短信价格Excel文件</label>
+        <input type="file" class="form-control"  id="file" file-model="fileToUpload"/>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="button-wrapper">
+                <button type="button" ng-click="checkFile()" class="btn btn-success">提交</button>
+            </div>
+        </div>
+    </div>
+</form>

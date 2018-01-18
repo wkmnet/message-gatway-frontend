@@ -10,7 +10,7 @@
 
     'BlurAdmin.pages.dashboard',
     // 'BlurAdmin.pages.ui',
-    //'BlurAdmin.pages.components',
+    'BlurAdmin.pages.components',
     'BlurAdmin.pages.user',
     //'BlurAdmin.pages.trade',
     //'BlurAdmin.pages.message',
@@ -26,6 +26,7 @@
     'BlurAdmin.pages.sign',
     'BlurAdmin.pages.template',
     'BlurAdmin.pages.platform',
+    'BlurAdmin.pages.price',
       
   ])
       .config(routeConfig);

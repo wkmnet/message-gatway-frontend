@@ -5,29 +5,30 @@
  * Author : qinxiangyu
  * User : qxy
  * Date : 17-10-11
- * Time : 上午11:29
+ * Time : 下午1:13
  * ---------------------------------
  *
  */
 
+
 (function () {
     'use strict';
 
-    angular.module('BlurAdmin.pages.sms', ['BlurAdmin.pages.sms.list','BlurAdmin.pages.sms.notice']).config(routeConfig);
+    angular.module("BlurAdmin.pages.price.list",[]).config(routeConfig);
 
     /** @ngInject */
     function routeConfig($stateProvider) {
         $stateProvider
-            .state('sms', {
-                url: '/sms',
-                template : '<ui-view></ui-view>',
-                abstract: true,
-                title: '短信管理',
+            .state('price.list', {
+                url: '/list',
+                templateUrl: 'app/pages/price/list/list.html',
+                controller: "PriceListCtrl",
+                title: '价格列表',
                 sidebarMeta: {
-                    icon: 'ion-email',
-                    order: 1,
+                    icon: 'ion-ios-pulse',
+                    order: 0,
                 },
             });
     }
-
 })();
+
