@@ -7,6 +7,8 @@
             <th class="align-right">平台名称</th>
             <th class="align-right">平台密钥</th>
             <th class="align-right">超时时间</th>
+            <th class="align-right">短信条数</th>
+            <th class="align-right">间隔时间</th>
             <th class="align-right">创建时间</th>
             <th class="align-right">状态</th>
             <th class="align-right">操作</th>
@@ -18,6 +20,8 @@
             <td class="align-right">{{item.platform_name}}</td>
             <td class="align-right">{{item.platform_key}}</td>
             <td class="align-right">{{item.expire_age}}</td>
+            <td class="align-right">{{item.sms_number}}</td>
+            <td class="align-right">{{item.sms_interval_time}}</td>
             <td class="align-right">{{item.created_time}}</td>
             <td class="align-right">{{item.status == 0?"创建":item.status == 1?"正常":item.status == 2?"禁用":"-"}}
             </td>
@@ -29,7 +33,7 @@
         </tr>
         <tfoot>
         <tr>
-            <td colspan="6" class="text-center">
+            <td colspan="9" class="text-center">
                 <div ng-if="data.totalPage">
 
                     <uib-pagination

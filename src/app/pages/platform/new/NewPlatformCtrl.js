@@ -67,6 +67,14 @@
                 toastr.error("超时时间不能少于1分钟！");
                 return;
             };
+            if(!$scope.platform.sms_number || $scope.platform.sms_number < 1){
+                toastr.error("每个手机号每天发送短信条数不能少于1条！");
+                return;
+            };
+            if(!$scope.platform.sms_interval_time || $scope.platform.sms_interval_time < 1){
+                toastr.error("短信间隔时间不能少于1分钟！");
+                return;
+            };
             if(!$scope.platform.platform_key){
                 toastr.error("平台密钥不能为空！");
                 return;
