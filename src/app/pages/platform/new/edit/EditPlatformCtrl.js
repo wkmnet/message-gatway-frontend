@@ -83,7 +83,7 @@
             };
 
             if(!$scope.platform.expire_age || $scope.platform.expire_age < 1){
-                toastr.error("超时时间不能少于1分钟！");
+                toastr.error("超时时间不能少于60秒！");
                 return;
             };
             if(!$scope.platform.sms_number || $scope.platform.sms_number < 1){
@@ -91,7 +91,7 @@
                 return;
             };
             if(!$scope.platform.sms_interval_time || $scope.platform.sms_interval_time < 1){
-                toastr.error("短信间隔时间不能少于1分钟！");
+                toastr.error("短信间隔时间不能少于60秒！");
                 return;
             };
             if(!$scope.platform.platform_key){
