@@ -5,8 +5,8 @@
                 <label for="country">区域</label>
                 <select class="form-control" id="country" ng-model="param.country" title="区域" data-style="btn-primary" data-container="body" selectpicker>
                     <option></option>
-                    <option value="0">国内</option>
-                    <option value="1">国外</option>
+                    <option value="0">中国大陆</option>
+                    <option value="1">其它地区</option>
                 </select>
             </div>
         </div>
@@ -36,7 +36,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <label>交易日期</label>
+                <label>创建日期</label>
                 <div class="input-date range input-group">
                     <input ng-dblclick="clearDate()" ng-click="selectDate()" type="text" ng-model="param.start" id="start" class="form-control" name="start"/>
                     <span class="input-group-addon">到</span>
