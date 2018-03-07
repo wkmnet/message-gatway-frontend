@@ -4,7 +4,7 @@
         <tr>
             <th class="align-right">#</th>
             <th class="align-right">通道编号</th>
-            <th class="align-right">通道名称</th
+            <th class="align-right">通道名称</th>
            <!-- <th class="align-right">关联实现类</th>-->
             <th class="align-right">优先级</th>
             <th class="align-right">创建时间</th>
@@ -21,7 +21,7 @@
             <td class="align-right">{{item.created_time}}</td>
             <td class="align-right">{{item.is_validate == 0?"禁用":item.is_validate == 1?"启用":"-"}}
             <td class="align-right">
-                <a href="javascript:void(0)" ng-click="switchIsValidate({{item.id}},{{item.is_validate == 1?0:1}})">{{item.is_validate == 1?"禁用":"启用"}}</a>
+                <a href="javascript:void(0)" ng-click="switchStatus(item.id,item.channel_name,item.is_validate == 1?0:1)">{{item.is_validate == 1?"禁用":"启用"}}</a>
                 <a href="javascript:void(0);" ng-click="delete(item.id,item.channel_name)">{{item.is_validate == 1 ? '' : '删除'}}</a>
                 <a href="#/channel/new/edit/{{item.id}}">{{item.is_validate == 1? '' : '编辑'}}</a>
             </td>

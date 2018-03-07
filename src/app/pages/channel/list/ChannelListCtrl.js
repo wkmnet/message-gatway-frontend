@@ -49,6 +49,22 @@
             $scope.queryChannel();
         };
         $scope.queryChannel();
+
+        $scope.switchStatus = function(id,name,isValidate){
+            var content = "";
+            if(isValidate == '0'){
+                content = '禁用';
+            }
+            if(isValidate == '1'){
+                content = '启用';
+            }
+            commonService.confirm($scope,'确认对话框','您确定要' + content + "[" + name +']短信渠道吗？').then(function(result){
+                console.log("result...",result);
+                if(result == 'ok'){
+                    $scope.switchIsValidate(id,isValidate);
+                }
+            });
+        };
         
         $scope.switchIsValidate = function(id,isValidate){
             console.log("id:",id);
@@ -66,7 +82,7 @@
             
         };
         $scope.delete = function(id,name){
-            commonService.confirm($scope,'确认对话框','您确定要删除 ' + name +' 平台吗？').then(function(result){
+            commonService.confirm($scope,'确认对话框','您确定要删除 ' + name +' 短信渠道吗？').then(function(result){
                 console.log("result...",result);
                 if(result == 'ok'){
                     $scope.deleteChannel(id);

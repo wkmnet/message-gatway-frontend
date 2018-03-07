@@ -74,7 +74,23 @@
             });
         };
 
-        $scope.switchStatus = function(id,status){
+        $scope.switchStatus = function(id,name,isValidate){
+            var content = "";
+            if(isValidate == '0'){
+                content = '禁用';
+            }
+            if(isValidate == '1'){
+                content = '启用';
+            }
+            commonService.confirm($scope,'确认对话框','您确定要' + content + "[" + name +']平台吗？').then(function(result){
+                console.log("result...",result);
+                if(result == 'ok'){
+                    $scope.changeStatus(id,isValidate);
+                }
+            });
+        };
+
+        $scope.changeStatus = function(id,status){
             console.log("id:",id);
             console.log("status",status);
             $http.put("/api/platform/" + id,{"status":status}).success(function(response){
