@@ -1,0 +1,23 @@
+<form>
+    <div class="form-group">
+        <label for="redis_name">redis_name</label>
+        <input type="text" class="form-control" id="redis_name" ng-model="redis.redis_name" readonly>
+    </div>
+    <div class="form-group">
+        <label for="key">key</label>
+        <input type="text" class="form-control" id="key" ng-model="redis.key" readonly>
+    </div>
+    <div class="form-group">
+        <label for="value">value</label>
+        <input type="text" class="form-control" id="value" ng-model="redis.value">
+    </div>
+    <div class="form-group">
+        <label for="timeout">timeout</label>
+        <input type="text" class="form-control" id="timeout" ng-model="redis.timeout">
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="button-wrapper"><button type="button" ng-click="checkRedis()" class="btn btn-success">保存</button></div>
+        </div>
+    </div>
+</form>

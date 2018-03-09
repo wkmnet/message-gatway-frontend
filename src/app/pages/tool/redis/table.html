@@ -2,27 +2,27 @@
     <table class="table table-hover">
         <thead>
         <tr>
-            <th class="align-right">#</th>
-            <th class="align-right">系统配置KEY</th>
-            <th class="align-right">系统配置VALUE</th>
-            <th class="align-right">描述</th>
-            <th class="align-right">操作</th>
+            <th class="align-left">key</th>
+            <th class="align-left">value</th>
+            <th class="align-left">超时时间</th>
+            <th class="align-left">操作</th>
         </tr>
         </thead>
         <tr ng-repeat="item in data.list">
-            <td class="align-right">{{item.id}}</td>
-            <td class="align-right">{{item.config_key}}</td>
-            <td class="align-right">{{item.config_value}}</td>
-            <td class="align-right">{{item.description}}</td>
-            <td class="align-right">
-                <a href="javascript:void(0);" ng-click="delete(item.id,item.config_key)">{{currentUser.role == 'admin' ? '删除':''}}</a>
-                <a href="#/config/new/edit/{{item.id}}">{{currentUser.role == 'admin' ? '编辑':''}}</a>
+            <td class="align-left">{{item.key}}</td>
+            <td class="align-left">{{item.value}}</td>
+            <td class="align-left">{{item.timeout}}</td>
+            <td>
+                <a href="#/tool/redis/edit/{{param.redis_name}}/{{item.key}}">编辑</a>
+                <a href="javascript:void(0);" ng-click="delete(item.key)">删除</a>
             </td>
         </tr>
         <tfoot>
         <tr>
-            <td colspan="5" class="text-center">
+            <td colspan="9" class="text-center">
+
                 <div ng-if="data.totalPage">
+
                     <uib-pagination
                             total-items="data.totalRow"
                             class="pagination-sm"
@@ -35,7 +35,7 @@
                             previous-text="上一页"
                             next-text="下一页"
                             num-pages="data.totalPage"
-                            ng-change="queryConfig()"
+                            ng-change="queryRedis()"
                             items-per-page="data.pageSize">
                     </uib-pagination>
                 </div>

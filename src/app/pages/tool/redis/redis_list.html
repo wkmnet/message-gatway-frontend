@@ -1,0 +1,32 @@
+<div class="widgets">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label for="key">检索</label>
+                <input type="text" ng-model="param.key" class="form-control" id="key" placeholder="">
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="redis_name">选择redis</label>
+                <select class="form-control" id="redis_name" ng-model="param.redis_name" data-style="btn-primary" selectpicker>
+                    <option ng-repeat="item in names" selected value="{{item}}">{{item}}</option>
+                </select>
+
+            </div>
+        </div>
+        <div class="col-md-2">
+            <label></label>
+            <div class="button-wrapper">
+                <button type="button" ng-click="queryBtn()" class="btn btn-primary  btn-sm">查询</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div ba-panel ba-panel-title="Redis列表" ba-panel-class="with-scroll">
+                <div include-with-scope="app/pages/tool/redis/table.html"></div>
+            </div>
+        </div>
+    </div>
+</div>

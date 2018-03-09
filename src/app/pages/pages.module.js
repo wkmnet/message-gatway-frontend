@@ -27,6 +27,7 @@
     'BlurAdmin.pages.template',
     'BlurAdmin.pages.platform',
     'BlurAdmin.pages.price',
+    'BlurAdmin.pages.tool'
       
   ])
       .config(routeConfig);
