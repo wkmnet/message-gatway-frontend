@@ -45,7 +45,7 @@
     ];*/
 
     function loadCurrentTrade() {
-        $http.get("/api/order/current").success(function(resp){
+        $http.get("/api/count/current").success(function(resp){
             if(resp.success){
                 $scope.data = resp.data;
                 createNewChart();
@@ -60,8 +60,8 @@
     function createNewChart(){
         var chartData = [];
         $scope.data.list.forEach(function(value,index,array){
-            chartData.push({date: new Date(value.date), total: value.total,success: value.success,
-                refund: value.refund,cancel: value.cancel,timeout: value.timeout})
+            chartData.push({time: new Date(value.time), total: value.total,submitSuccess: value.submitSuccess,
+                sendSuccess: value.sendSuccess,sendFail: value.sendFail,submitFail: value.submitFail})
         });
         var chart = AmCharts.makeChart("amchart", {
             "type": "serial",
@@ -70,44 +70,44 @@
             "dataProvider": chartData,
             "valueAxes": [{
                 "position": "left",
-                "title": "订单数量"
+                "title": "短信数量"
             }],
             "graphs": [{
                 "id": "g0",
                 "lineColor": baUtil.hexToRGB(graphColor, 0.1),
                 "fillAlphas": 1,
                 "valueField": "total",
-                "balloonText": "<div style='margin:5px; font-size:19px;'>总订单:<b>[[value]]</b></div>"
+                "balloonText": "<div style='margin:5px; font-size:19px;'>总数:<b>[[value]]</b></div>"
             },{
                 "id": "g1",
                 "lineColor": baUtil.hexToRGB(graphColor, 0.3),
                 "fillAlphas": 1,
-                "valueField": "success",
-                "balloonText": "<div style='margin:5px; font-size:19px;'>成功单:<b>[[value]]</b></div>"
+                "valueField": "submitSuccess",
+                "balloonText": "<div style='margin:5px; font-size:19px;'>提交成功数:<b>[[value]]</b></div>"
             },{
                 "id": "g2",
                 "lineColor": baUtil.hexToRGB(graphColor, 0.5),
                 "fillAlphas": 1,
-                "valueField": "refund",
-                "balloonText": "<div style='margin:5px; font-size:19px;'>退款单:<b>[[value]]</b></div>"
+                "valueField": "sendSuccess",
+                "balloonText": "<div style='margin:5px; font-size:19px;'>发送成功数:<b>[[value]]</b></div>"
             },{
                 "id": "g3",
                 "lineColor": baUtil.hexToRGB(graphColor, 0.7),
                 "fillAlphas": 1,
-                "valueField": "cancel",
-                "balloonText": "<div style='margin:5px; font-size:19px;'>取消单:<b>[[value]]</b></div>"
+                "valueField": "sendFail",
+                "balloonText": "<div style='margin:5px; font-size:19px;'>发送失败数:<b>[[value]]</b></div>"
             },{
                 "id": "g4",
                 "lineColor": baUtil.hexToRGB(graphColor, 0.9),
                 "fillAlphas": 1,
-                "valueField": "timeout",
-                "balloonText": "<div style='margin:5px; font-size:19px;'>超时单:<b>[[value]]</b></div>"
+                "valueField": "submitFail",
+                "balloonText": "<div style='margin:5px; font-size:19px;'>提交失败数:<b>[[value]]</b></div>"
             }],
             "chartCursor": {
                 "categoryBalloonDateFormat": "JJ:NN, MM-DD",
                 "cursorPosition": "mouse"
             },
-            "categoryField": "date",
+            "categoryField": "time",
             "categoryAxis": {
                 "minPeriod": "mm",
                 "parseDates": true

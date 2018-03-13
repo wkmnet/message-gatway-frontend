@@ -14,7 +14,7 @@
     $scope.transparent = baConfig.theme.blur;
     var dashboardColors = baConfig.colors.dashboard;
     function loadOrderData() {
-      $http.get("/api/order/count").success(function(resp){
+      $http.get("/api/count/latest").success(function(resp){
         if(resp.success){
           $scope.data = resp.data;
           createChart();
