@@ -26,7 +26,8 @@
         $scope.openList = true;
 
         $scope.getChannels = function () {
-            $http.get("/api/channel").success(function (response) {
+            var url = "/api/channel?type=0";
+            $http.get(url).success(function (response) {
                 if (response.success) {
                     $scope.channels = response.data;
                     console.log("channels: ", $scope.channels);
