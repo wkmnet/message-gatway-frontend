@@ -20,6 +20,7 @@
     function EditChannelCtrl($stateParams,$http,$scope,toastr) {
         $scope.channel = {};
         $scope.classes = {};
+        $scope.channel.type = '0';
 
         $scope.channelId = $stateParams.channel;
         console.log("channelId",$stateParams.channel);

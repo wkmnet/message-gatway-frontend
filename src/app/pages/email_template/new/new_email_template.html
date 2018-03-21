@@ -1,0 +1,48 @@
+<form>
+    <div class="form-group">
+        <label for="template_name">邮件模板名称</label>
+        <input type="text" class="form-control" id="template_name" ng-model="template.template_name" placeholder="短信模板编号">
+    </div>
+    <div class="form-group">
+        <label for="refer_template">第三方邮件模板名称</label>
+        <input class="form-control" id="refer_template" ng-model="template.refer_template" placeholder="短信模板"/>
+    </div>
+    <div class="form-group">
+        <label for="from_address">邮件发送地址</label>
+        <input class="form-control" id="from_address" ng-model="template.from_address" placeholder="短信模板"/>
+    </div>
+    <div class="form-group">
+        <label for="from_name">邮件发送地址名称</label>
+        <input class="form-control" id="from_name" ng-model="template.from_name" placeholder="短信模板"/>
+    </div>
+    <div class="form-group">
+        <label for="subject">邮件主题</label>
+        <textarea class="form-control" id="subject" ng-model="template.subject" placeholder="短信模板"/>
+    </div>
+    <div class="form-group">
+        <label for="content_summary">邮件摘要</label>
+        <textarea class="form-control" id="content_summary" ng-model="template.content_summary" placeholder="短信模板"/>
+    </div>
+    <div class="form-group">
+        <label for="reply_to">邮件回复地址</label>
+        <input class="form-control" id="reply_to" ng-model="template.reply_to" placeholder="短信模板"/>
+    </div>
+    <div class="form-group">
+        <label>邮件类型</label>
+        <label class="radio-inline custom-radio nowrap">
+            <input type="radio" name="inlineRadioOptions" value="0" ng-model="template.content_type">
+            <span>第三方</span>
+        </label>
+        <label class="radio-inline custom-radio nowrap">
+            <input type="radio" name="inlineRadioOptions" value="1" ng-model="template.content_type">
+            <span>自定义</span>
+        </label>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="button-wrapper">
+                <button type="button" ng-click="checkTemplate()" class="btn btn-success">保存</button>
+            </div>
+        </div>
+    </div>
+</form>

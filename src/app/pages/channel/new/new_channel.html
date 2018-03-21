@@ -19,6 +19,16 @@
         <label for="level">优先级（0-100,不填默认0最低优先级）</label>
         <input type="number" class="form-control" id="level" ng-model="channel.level" placeholder="优先级">
     </div>
+    <div class="form-group">
+        <label class="radio-inline custom-radio nowrap">
+            <input type="radio" name="inlineRadioOptions" value="0" ng-model="channel.type">
+            <span>短信通道</span>
+        </label>
+        <label class="radio-inline custom-radio nowrap">
+            <input type="radio" name="inlineRadioOptions" value="1" ng-model="channel.type">
+            <span>邮件通道</span>
+        </label>
+    </div>
     <div class="row">
         <div class="col-md-2">
             <div class="button-wrapper">

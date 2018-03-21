@@ -20,6 +20,7 @@
     function NewChannelCtrl($scope, $http, toastr) {
         $scope.channel = {};
         $scope.classes = {};
+        $scope.channel.type = '0';
 
         $scope.saveChannel = function () {
             console.log("save channel:", $scope.channel);
@@ -38,12 +39,13 @@
         };
 
         $scope.checkChannel = function () {
+            console.log("channel type"+$scope.channel.type)
             if (!$scope.channel.channel_no) {
                 toastr.error("短信通道编号为空！");
                 return;
             }
             if (!$scope.channel.channel_name) {
-                toastr.error("短信名称为空！");
+                toastr.error("短信通道名称为空！");
                 return;
             }
          /*   if (!$scope.channel.class_name) {
