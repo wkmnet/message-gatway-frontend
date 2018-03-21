@@ -1,0 +1,147 @@
+<div class="widgets" ng-show="openList">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="channel_no">短信通道</label>
+                <select class="form-control" id="channel_no" ng-model="param.channel_no" title="短信通道" data-style="btn-primary" data-container="body" selectpicker>
+                    <option></option>
+                    <option value="{{item.channel_no}}" data-ng-repeat="item in channels.list">{{item.id}} {{item.channel_no}} {{item.channel_name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="from_address">发送地址</label>
+                <input type="text" ng-model="param.from_address" class="form-control" id="from_address" placeholder="">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="to_address">接收地址</label>
+                <input type="text" ng-model="param.to_address" class="form-control" id="to_address" placeholder="">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="from_name">请求地址名称</label>
+                <input type="text" ng-model="param.from_name" class="form-control" id="from_name" placeholder="">
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>创建日期</label>
+                <div class="input-date range input-group">
+                    <input ng-dblclick="clearDate()" ng-click="selectDate()" type="text" ng-model="param.start" id="start" class="form-control" name="start"/>
+                    <span class="input-group-addon">到</span>
+                    <input ng-dblclick="clearDate()" ng-click="selectDate()" type="text" ng-model="param.end" id="end" class="form-control" name="end"/>
+                </div>
+            </div>
+            <div ng-show="showDatePicker" id="myPicker" style="position: absolute;z-index: 100;border:1px solid #000">
+                <div>
+                    <ul class="btn-list clearfix">
+                        <li><button title="关闭" ng-click="closeDatePicker()" type="button" class="btn btn-primary btn-icon"><i class="ion-ios-close-outline"></i></button></li>
+                        <li><button title="清空" ng-click="clearDate()" type="button" class="btn btn-primary btn-icon"><i class="ion-loop"></i></button></li>
+                    </ul>
+                </div>
+                <div date-range id="pickerRange" start="query.start" end="query.end" date-change="changeDate" view="date" min-view="date" timezone="UTC"></div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label for="platform_no">平台号</label>
+                <select class="form-control" id="platform_no" ng-model="param.platform_no" title="平台号" data-style="btn-primary" data-container="body" selectpicker>
+                    <option></option>
+                    <option value="{{item.platform_no}}" data-ng-repeat="item in platforms.list">{{item.id}} {{item.platform_no}} {{item.platform_name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label for="status">状态</label>
+                <select class="form-control" id="status" ng-model="param.status" title="状态" data-style="btn-primary" data-container="body" selectpicker>
+                    <option></option>
+                    <option value="0">成功</option>
+                    <option value="1">失败</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <label></label>
+            <div class="button-wrapper"><button type="button" ng-click="queryBtn()" class="btn btn-primary  btn-sm">查询</button></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div ba-panel ba-panel-title="短信列表" ba-panel-class="with-scroll">
+                <div include-with-scope="app/pages/email_list/list/table.html"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="widgets" ng-hide="openList">
+    <table class="table">
+        <tr>
+            <td class="align-right">序号</td>
+            <td class="align-left">{{email.id}} </td>
+        </tr>
+        <tr>
+            <td class="align-right">通道</td>
+            <td class="align-left">{{email.channel_no}} </td>
+        </tr>
+        <tr>
+            <td class="align-right">平台号</td>
+            <td class="align-left">{{email.platform_no}} </td>
+        </tr>
+        <tr>
+            <td class="align-right">国际码</td>
+            <td class="align-left">{{sms.internal_code}} </td>
+        </tr>
+        <tr>
+            <td class="align-right">发送地址</td>
+            <td class="align-left">{{email.from_address}} </td>
+        </tr>
+        <tr>
+            <td class="align-right">发送地址名称</td>
+            <td class="align-left">{{email.from_name}} </td>
+        </tr>
+        <tr>
+            <td class="align-right">接收地址</td>
+            <td class="align-left">{{email.to_address}} </td>
+        </tr>
+        <tr>
+            <td class="align-right">邮件模板名称</td>
+            <td class="align-left">{{email.template_name}} </td>
+        </tr>
+        <tr>
+            <td class="align-right">状态</td>
+            <td class="align-left">{{email.status == 0 ? '成功':email.status == 1 ? '失败':'-'}}</td>
+        </tr>
+        <tr>
+            <td class="align-right">请求内容</td>
+            <td class="align-left"><textarea class="form-control">{{email.request_body}} </textarea></td>
+        </tr>
+        <tr>
+            <td class="align-right">响应内容</td>
+            <td class="align-left"><textarea class="form-control">{{email.response_body}}</textarea> </td>
+        </tr>
+        <tr>
+            <td class="align-right">创建时间</td>
+            <td class="align-left">{{sms.created_time}} </td>
+        </tr>
+        <tr>
+            <td class="align-right">备注</td>
+            <td class="align-left">{{sms.remark}} </td>
+        </tr>
+
+        <tfoot>
+        <div class="align-left">
+            <button type="button" class="btn btn-primary btn-sm" ng-click="goBack()">返回</button>
+        </div>
+        </tfoot>
+    </table>
+
+</div>

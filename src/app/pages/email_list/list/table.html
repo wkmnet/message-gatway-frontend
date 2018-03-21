@@ -1,0 +1,59 @@
+<div class="horizontal-scroll">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th class="align-left">#</th>
+            <th class="align-left">短信ID</th>
+            <th class="align-left">通道</th>
+            <th class="align-left">平台号</th>
+            <th class="align-left">状态</th>
+            <th class="align-left">发送地址</th>
+            <th class="align-left">发送地址名称</th>
+            <th class="align-left">接收地址</th>
+            <th class="align-left">模板名称</th>
+            <th class="align-left">创建时间</th>
+            <th class="align-left">操作</th>
+        </tr>
+        </thead>
+        <tr ng-repeat="item in data.list">
+            <td class="align-left">{{item.id}}</td>
+            <td class="align-left">{{item.message_id}}</td>
+            <td class="align-left">{{item.channel_no}}</td>
+            <td class="align-left">{{item.platform_no}}</td>
+            <td class="align-left">{{item.status == 0 ? '成功':item.status == 1 ? '失败':'-'}}</td>
+            <td class="align-left">{{item.from_address}}</td>
+            <td class="align-left">{{item.from_name}}</td>
+            <td class="align-left">{{item.to_address}}</td>
+            <td class="align-left">{{item.template_name}}</td>
+            <td class="align-left">{{item.created_time}}</td>
+            <td>
+                <a href="javascript:void(0);" ng-click="open($index)">详情</a>
+            </td>
+
+        </tr>
+        <tfoot>
+        <tr>
+            <td colspan="11" class="text-center">
+                <div ng-if="data.totalPage">
+                    <uib-pagination
+                            total-items="data.totalRow"
+                            class="pagination-sm"
+                            ng-model="param.page"
+                            max-size="5"
+                            boundary-links="true"
+                            force-ellipses="false"
+                            first-text="首页"
+                            last-text="末页"
+                            previous-text="上一页"
+                            next-text="下一页"
+                            num-pages="data.totalPage"
+                            ng-change="queryEmail()"
+                            items-per-page="data.pageSize">
+                    </uib-pagination>
+                </div>
+
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
