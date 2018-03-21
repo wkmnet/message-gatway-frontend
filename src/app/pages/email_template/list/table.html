@@ -3,9 +3,15 @@
         <thead>
         <tr>
             <th class="align-right">#</th>
-            <th class="align-right">邮件模板名称</th>
+            <th class="align-right">模板名称</th>
             <th class="align-right">第三方模板名称</th>
-            <th class="align-right">第三方模板名称</th>
+            <th class="align-right">发送地址</th>
+            <th class="align-right">发送地址名称</th>
+            <th class="align-right">主题</th>
+            <th class="align-right">摘要</th>
+            <th class="align-right">回复地址</th>
+            <th class="align-right">类型</th>
+            <th class="align-right">创建时间</th>
             <th class="align-right">操作</th>
         </tr>
         </thead>
@@ -15,10 +21,10 @@
             <td class="align-right">{{item.refer_template}}</td>
             <td class="align-right">{{item.from_address}}</td>
             <td class="align-right">{{item.from_name}}</td>
-            <td class="align-right">{{item.subject}}</td>
-            <td class="align-right">{{item.content_summary}}</td>
+            <td class="align-right"><textarea>{{item.subject}}</textarea></td>
+            <td class="align-right"><textarea>{{item.content_summary}}</textarea></td>
             <td class="align-right">{{item.reply_to}}</td>
-            <td class="align-right">{{item.content_type}}</td>
+            <td class="align-right">{{item.content_type == 0?"第三方":item.content_type == 1?"自定义":"-"}}</td>
             <td class="align-right">{{item.created_time}}</td>
             <td class="align-right">
                 <a href="javascript:void(0);" ng-click="delete(item.id,item.template_name)">删除</a>
