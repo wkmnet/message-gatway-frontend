@@ -68,7 +68,7 @@
                     return;
                 }
             }
-            $scope.saveTemplate();
+            $scope.saveEmailTemplate();
         };
 
     };
