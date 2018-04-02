@@ -29,7 +29,9 @@
     'BlurAdmin.pages.price',
     'BlurAdmin.pages.tool',
     // 'BlurAdmin.pages.email_template',
-    // 'BlurAdmin.pages.email_list'
+    // 'BlurAdmin.pages.email_list',
+      'BlurAdmin.pages.schedule_job'
+      
       
   ])
       .config(routeConfig);

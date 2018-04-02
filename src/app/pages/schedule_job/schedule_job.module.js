@@ -13,19 +13,22 @@
 (function () {
     'use strict';
 
-    angular.module('BlurAdmin.pages.price', ['BlurAdmin.pages.price.list','BlurAdmin.pages.price.price','BlurAdmin.pages.price.new']).config(routeConfig);
+    angular.module('BlurAdmin.pages.schedule_job', [
+        'BlurAdmin.pages.schedule_job.list',
+        'BlurAdmin.pages.schedule_job.new'
+    ]).config(routeConfig);
 
     /** @ngInject */
     function routeConfig($stateProvider) {
         $stateProvider
-            .state('price', {
-                url: '/price',
+            .state('schedule_job', {
+                url: '/schedule_job',
                 template : '<ui-view></ui-view>',
                 abstract: true,
-                title: '短信价格',
+                title: '定时任务管理',
                 sidebarMeta: {
-                    icon: 'ion-email',
-                    order: 41,
+                    icon: 'icon ion-ios-stopwatch-outline',
+                    order: 45,
                 },
             });
     }
