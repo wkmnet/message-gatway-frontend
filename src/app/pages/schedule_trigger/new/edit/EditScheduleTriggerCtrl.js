@@ -24,7 +24,7 @@
         $scope.scheduleTriggerId = $stateParams.schedule_trigger;
         console.log("scheduleTriggerId",$stateParams.schedule_trigger);
 
-        $scope.loadScheduleJob = function() {
+        $scope.loadScheduleTrigger = function() {
             $http.get("/api/schedule_trigger/" + $scope.scheduleTriggerId).success(function(response){
                 console.log("response:",response);
                 if(response.success){
@@ -37,7 +37,7 @@
                 toastr.error(data);
             });
         };
-        $scope.loadScheduleJob();
+        $scope.loadScheduleTrigger();
 
         $scope.saveScheduleTrigger = function () {
             console.log("save schedule_trigger:", $scope.schedule_trigger);

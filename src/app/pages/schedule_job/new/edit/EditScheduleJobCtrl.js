@@ -20,6 +20,7 @@
     function EditScheduleJobCtrl($stateParams,$scope, $http, toastr) {
 
         $scope.schedule_job = {};
+        $scope.triggers = {};
 
         $scope.scheduleJobId = $stateParams.schedule_job;
         console.log("scheduleJobId",$stateParams.schedule_job);
@@ -77,6 +78,22 @@
             }
             $scope.saveScheduleJob();
         };
+
+        $scope.queryScheduleTrigger = function () {
+            $http.get("/api/schedule_trigger").success(function (resp) {
+                if (resp.success) {
+                    $scope.triggers = resp.data;
+                } else {
+                    toastr.error(resp.message);
+                }
+                cfpLoadingBar.complete();
+            }).error(function (resp, status) {
+                console.log("status:", status);
+                toastr.error(resp);
+            });
+
+        };
+        $scope.queryScheduleTrigger();
 
 
     };
