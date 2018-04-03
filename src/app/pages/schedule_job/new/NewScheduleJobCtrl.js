@@ -77,6 +77,22 @@
         };
         $scope.queryScheduleTrigger();
 
+        $scope.names = {};
+        $scope.getClasses = function () {
+            $http.get("/api/schedule_job/get_job_classes").success(function (response) {
+                if(response.success){
+                    $scope.names = response.data.names;
+                    console.log("names : " + $scope.data.names);
+                }
+
+            }).error(function(resp,status){
+                console.log("status",status);
+                toastr.error(resp);
+            });
+        };
+
+        $scope.getClasses();
+
 
     };
 
