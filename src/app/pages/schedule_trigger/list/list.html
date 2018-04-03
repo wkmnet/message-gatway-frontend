@@ -1,0 +1,23 @@
+<div class="widgets">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="trigger_name">触发器名字</label>
+                <input type="text" ng-model="param.trigger_name" class="form-control" id="trigger_name" placeholder="">
+            </div>
+        </div>
+        <div class="col-md-2">
+            <label></label>
+            <div class="button-wrapper">
+                <button type="button" ng-click="queryBtn()" class="btn btn-primary  btn-sm">查询</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div ba-panel ba-panel-title="触发器列表" ba-panel-class="with-scroll">
+                <div include-with-scope="app/pages/schedule_trigger/list/table.html"></div>
+            </div>
+        </div>
+    </div>
+</div>

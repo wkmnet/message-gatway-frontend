@@ -54,7 +54,7 @@
             commonService.confirm($scope,'确认对话框','您确定要删除定时任务 ' + name +' 吗？').then(function(result){
                 console.log("result...",result);
                 if(result == 'ok'){
-                    $scope.deleteTemplate(id);
+                    $scope.deleteScheduleJob(id);
                 }
             });
         };
@@ -62,7 +62,7 @@
             $http.delete("/api/schedule_job/" + id).success(function(resp){
                 if(resp.success){
                     toastr.success('数据删除成功!');
-                    $scope.queryTemplate();
+                    $scope.queryScheduleJob();
                 } else {
                     toastr.error(resp.message);
                 }

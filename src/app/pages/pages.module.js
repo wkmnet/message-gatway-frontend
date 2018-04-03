@@ -30,7 +30,8 @@
     'BlurAdmin.pages.tool',
     // 'BlurAdmin.pages.email_template',
     // 'BlurAdmin.pages.email_list',
-      'BlurAdmin.pages.schedule_job'
+    'BlurAdmin.pages.schedule_job',
+    'BlurAdmin.pages.schedule_trigger'
       
       
   ])

@@ -1,0 +1,38 @@
+<form>
+    <div class="form-group">
+        <label for="trigger_name">触发器名称</label>
+        <input type="text" class="form-control" id="trigger_name" ng-model="schedule_trigger.trigger_name" placeholder="触发器名称">
+    </div>
+    <div class="form-group">
+        <label for="trigger_group">触发器组名称</label>
+        <input type="text" class="form-control" id="trigger_group" ng-model="schedule_trigger.trigger_group" placeholder="触发器组名称">
+    </div>
+    <div class="form-group">
+        <label for="trigger_type">触发器类型</label>
+        <select class="form-control" id="trigger_type" ng-model="schedule_trigger.trigger_type" ata-style="btn-primary" data-container="body" selectpicker>
+            <option value="0">cron</option>
+            <option value="1">h</option>
+            <option value="2">m</option>
+            <option value="3">s</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="cron_expression">表达式</label>
+        <input type="text" class="form-control" id="cron_expression" ng-model="schedule_trigger.cron_expression" placeholder="表达式">
+    </div>
+    <div class="form-group">
+        <label for="trigger_count">触发次数</label>
+        <input type="number" class="form-control" id="trigger_count" ng-model="schedule_trigger.trigger_count" placeholder="触发次数"/>
+    </div>
+    <div class="form-group">
+        <label for="trigger_interval">触发间隔</label>
+        <input type="number" class="form-control" id="trigger_interval" ng-model="schedule_trigger.trigger_interval" placeholder="触发间隔"/>
+    </div>
+    <div class="col-md-2">
+        <div class="row">
+            <div class="button-wrapper">
+                <button type="button" ng-click="checkScheduleTrigger()" class="btn btn-success">保存</button>
+            </div>
+        </div>
+    </div>
+</form>

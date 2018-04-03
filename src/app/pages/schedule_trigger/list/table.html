@@ -3,27 +3,26 @@
         <thead>
         <tr>
             <th class="align-right">#</th>
-            <th class="align-right">任务别名</th>
-            <th class="align-right">任务名称</th>
-            <th class="align-right">任务组名称</th>
-            <th class="align-right">任务完整类名</th>
-            <th class="align-right">触发器ID</th>
-            <th class="align-right">是否可用</th>
+            <th class="align-right">触发器名称</th>
+            <th class="align-right">触发器组名称</th>
+            <th class="align-right">触发器类型</th>
+            <th class="align-right">触发器表达式</th>
+            <th class="align-right">触发次数</th>
+            <th class="align-right">触发间隔</th>
             <th class="align-right">操作</th>
         </tr>
         </thead>
         <tr ng-repeat="item in data.list">
             <td class="align-right">{{item.id}}</td>
-            <td class="align-right">{{item.job_alias}}</td>
-            <td class="align-right">{{item.job_name}}</td>
-            <td class="align-right">{{item.job_group}}</td>
-            <td class="align-right">{{item.job_impl}}</td>
-            <td class="align-right">{{item.trigger_id}}</td>
-            <td class="align-right">{{item.job_enable}}</td>
+            <td class="align-right">{{item.trigger_name}}</td>
+            <td class="align-right">{{item.trigger_group}}</td>
+            <td class="align-right">{{item.trigger_type}}</td>
+            <td class="align-right">{{item.cron_expression}}</td>
+            <td class="align-right">{{item.trigger_count}}</td>
+            <td class="align-right">{{item.trigger_interval}}</td>
             <td class="align-right">
-                <a href="javascript:void(0)" ng-click="switchStatus(item.id,item.job_name,item.job_enable == 1?0:1)">{{item.job_enable == 1?"禁用":"启用"}}</a>
-                <a href="javascript:void(0);" ng-click="delete(item.id,item.job_name)">删除</a>
-                <a href="#/schedule_job/new/edit/{{item.id}}">编辑</a>
+                <a href="javascript:void(0);" ng-click="delete(item.id,item.trigger_name)">删除</a>
+                <a href="#/schedule_trigger/new/edit/{{item.id}}">编辑</a>
             </td>
         </tr>
         <tfoot>
@@ -42,7 +41,7 @@
                             previous-text="上一页"
                             next-text="下一页"
                             num-pages="data.totalPage"
-                            ng-change="queryScheduleJob()"
+                            ng-change="queryScheduleTrigger()"
                             items-per-page="data.pageSize">
                     </uib-pagination>
                 </div>
