@@ -18,6 +18,7 @@
     <div class="form-group">
         <label for="trigger_id">触发器ID</label>
         <select class="form-control" id="trigger_id" ng-model="schedule_job.trigger_id" data-style="btn-primary" title="触发器ID" data-container="body" selectpicker>
+            <option></option>
             <option value="{{item.id}}" data-ng-repeat="item in triggers.list">{{item.id}} {{item.trigger_name}}</option>
         </select>
     </div>
