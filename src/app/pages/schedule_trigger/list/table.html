@@ -16,7 +16,7 @@
             <td class="align-right">{{item.id}}</td>
             <td class="align-right">{{item.trigger_name}}</td>
             <td class="align-right">{{item.trigger_group}}</td>
-            <td class="align-right">{{item.trigger_type}}</td>
+            <td class="align-right">{{item.trigger_type == 0 ? 'cron' : item.trigger_type == 1 ? 'h' : item.trigger_type == 2 ? 'm' : 's'}}</td>
             <td class="align-right">{{item.cron_expression}}</td>
             <td class="align-right">{{item.trigger_count}}</td>
             <td class="align-right">{{item.trigger_interval}}</td>

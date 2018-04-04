@@ -27,7 +27,7 @@
                 abstract: true,
                 title: '定时任务管理',
                 sidebarMeta: {
-                    icon: 'icon ion-ios-stopwatch-outline',
+                    icon: 'icon ion-ios-stopwatch',
                     order: 45,
                 },
             });

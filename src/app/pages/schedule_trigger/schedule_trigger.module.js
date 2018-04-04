@@ -27,7 +27,7 @@
                 abstract: true,
                 title: '触发器管理',
                 sidebarMeta: {
-                    icon: 'icon ion-ios-stopwatch-outline',
+                    icon: 'icon ion-ios-gear',
                     order: 46,
                 },
             });
