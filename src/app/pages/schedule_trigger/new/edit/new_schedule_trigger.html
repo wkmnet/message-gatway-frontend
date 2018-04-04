@@ -10,9 +10,9 @@
     <div class="form-group">
         <label for="trigger_type">触发器类型</label>
         <select class="form-control" id="trigger_type" ng-model="schedule_trigger.trigger_type" ata-style="btn-primary" data-container="body" selectpicker>
-            <option selected="{{schedule_trigger.trigger_type == 0 'selected':''}}" value="0">cron</option>
-            <option selected="{{schedule_trigger.trigger_type == 1 'selected':''}}" value="1">h</option>
-            <option selected="{{schedule_trigger.trigger_type == 2 'selected':''}}" value="2">m</option>
+            <option selected="{{schedule_trigger.trigger_type == 0 ? 'selected':''}}" value="0">cron</option>
+            <option selected="{{schedule_trigger.trigger_type == 1 ? 'selected':''}}" value="1">h</option>
+            <option selected="{{schedule_trigger.trigger_type == 2 ? 'selected':''}}" value="2">m</option>
             <option selected="{{schedule_trigger.trigger_type == 3 ? 'selected':''}}" value="3">s</option>
         </select>
     </div>

@@ -67,11 +67,6 @@
                 toastr.error("触发器类型为空！");
                 return;
             }
-            if (!$scope.schedule_trigger.cron_expression) {
-                toastr.error("表达式为空！");
-                return;
-            }
-            console.log("schedule trigger count:" + $scope.schedule_trigger.trigger_count);
             if ($scope.schedule_trigger.trigger_count < 0) {
                 toastr.error("触发次数不正确！");
                 return;
