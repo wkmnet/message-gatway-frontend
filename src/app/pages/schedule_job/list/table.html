@@ -9,6 +9,8 @@
             <th class="align-right">任务完整类名</th>
             <th class="align-right">触发器ID</th>
             <th class="align-right">是否可用</th>
+            <th class="align-right">参数</th>
+            <th class="align-right">唯一标识</th>
             <th class="align-right">操作</th>
         </tr>
         </thead>
@@ -20,6 +22,8 @@
             <td class="align-right">{{item.job_impl}}</td>
             <td class="align-right">{{item.trigger_id}}</td>
             <td class="align-right">{{item.job_enable}}</td>
+            <td class="align-right"><textarea>{{item.job_params}}</textarea></td>
+            <td class="align-right">{{item.job_uuid}}</td>
             <td class="align-right">
                 <a href="javascript:void(0)" ng-click="switchStatus(item.id,item.job_name,item.job_enable == 1?0:1)">{{item.job_enable == 1?"禁用":"启用"}}</a>
                 <a href="javascript:void(0);" ng-click="delete(item.id,item.job_name)">删除</a>

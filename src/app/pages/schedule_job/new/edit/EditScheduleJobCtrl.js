@@ -86,7 +86,6 @@
                 } else {
                     toastr.error(resp.message);
                 }
-                cfpLoadingBar.complete();
             }).error(function (resp, status) {
                 console.log("status:", status);
                 toastr.error(resp);
