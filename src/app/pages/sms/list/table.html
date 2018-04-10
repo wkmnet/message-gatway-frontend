@@ -32,6 +32,9 @@
         </tr>
         <tfoot>
         <tr>
+            <td colspan="1" class="text-center">
+                <div ng-if="data.totalPage" class="align-left">{{data.totalRow}}</div>
+            </td>
             <td colspan="9" class="text-center">
                 <div ng-if="data.totalPage">
                     <uib-pagination
