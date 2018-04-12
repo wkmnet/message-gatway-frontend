@@ -1,6 +1,6 @@
 <div class="widgets" ng-show="openList">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class="form-group">
                 <label for="country">区域</label>
                 <select class="form-control" id="country" ng-model="param.country" title="区域" data-style="btn-primary" data-container="body" selectpicker>
@@ -10,47 +10,13 @@
                 </select>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class="form-group">
                 <label for="channel_no">短信通道</label>
                 <select class="form-control" id="channel_no" ng-model="param.channel_no" title="短信通道" data-style="btn-primary" data-container="body" selectpicker>
                     <option></option>
                     <option value="{{item.channel_no}}" data-ng-repeat="item in channels.list">{{item.id}} {{item.channel_no}} {{item.channel_name}}</option>
                 </select>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="form-group">
-                <label for="phone">手机号</label>
-                <input type="text" ng-model="param.phone" class="form-control" id="phone" placeholder="">
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="form-group">
-                <label for="message_id">短信ID</label>
-                <input type="text" ng-model="param.message_id" class="form-control" id="message_id" placeholder="">
-            </div>
-        </div>
-
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label>创建日期</label>
-                <div class="input-date range input-group">
-                    <input ng-dblclick="clearDate()" ng-click="selectDate()" type="text" ng-model="param.start" id="start" class="form-control" name="start"/>
-                    <span class="input-group-addon">到</span>
-                    <input ng-dblclick="clearDate()" ng-click="selectDate()" type="text" ng-model="param.end" id="end" class="form-control" name="end"/>
-                </div>
-            </div>
-            <div ng-show="showDatePicker" id="myPicker" style="position: absolute;z-index: 100;border:1px solid #000">
-                <div>
-                    <ul class="btn-list clearfix">
-                        <li><button title="关闭" ng-click="closeDatePicker()" type="button" class="btn btn-primary btn-icon"><i class="ion-ios-close-outline"></i></button></li>
-                        <li><button title="清空" ng-click="clearDate()" type="button" class="btn btn-primary btn-icon"><i class="ion-loop"></i></button></li>
-                    </ul>
-                </div>
-                <div date-range id="pickerRange" start="query.start" end="query.end" date-change="changeDate" view="date" min-view="date" timezone="UTC"></div>
             </div>
         </div>
         <div class="col-md-2">
@@ -75,6 +41,54 @@
             </div>
         </div>
         <div class="col-md-2">
+            <div class="form-group">
+                <label for="startTime">开始时间（07:00:00）</label>
+                <input type="text" ng-model="param.startTime" class="form-control" id="startTime" placeholder="">
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label for="endTime">结束时间(08:00:00)</label>
+                <input type="text" ng-model="param.endTime" class="form-control" id="endTime" placeholder="">
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label>创建日期</label>
+                <div class="input-date range input-group">
+                    <input ng-dblclick="clearDate()" ng-click="selectDate()" type="text" ng-model="param.start" id="start" class="form-control" name="start"/>
+                    <span class="input-group-addon">到</span>
+                    <input ng-dblclick="clearDate()" ng-click="selectDate()" type="text" ng-model="param.end" id="end" class="form-control" name="end"/>
+                </div>
+            </div>
+            <div ng-show="showDatePicker" id="myPicker" style="position: absolute;z-index: 100;border:1px solid #000">
+                <div>
+                    <ul class="btn-list clearfix">
+                        <li><button title="关闭" ng-click="closeDatePicker()" type="button" class="btn btn-primary btn-icon"><i class="ion-ios-close-outline"></i></button></li>
+                        <li><button title="清空" ng-click="clearDate()" type="button" class="btn btn-primary btn-icon"><i class="ion-loop"></i></button></li>
+                    </ul>
+                </div>
+                <div date-range id="pickerRange" start="query.start" end="query.end" date-change="changeDate" view="date" min-view="date" timezone="UTC"></div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="phone">手机号</label>
+                <input type="text" ng-model="param.phone" class="form-control" id="phone" placeholder="">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="message_id">短信ID</label>
+                <input type="text" ng-model="param.message_id" class="form-control" id="message_id" placeholder="">
+            </div>
+        </div>
+
+
+        <div class="col-md-1">
             <label></label>
             <div class="button-wrapper"><button type="button" ng-click="queryBtn()" class="btn btn-primary  btn-sm">查询</button></div>
         </div>
