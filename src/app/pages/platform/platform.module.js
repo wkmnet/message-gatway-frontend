@@ -20,7 +20,7 @@
           title: '平台管理',
           sidebarMeta: {
             icon: 'ion-monitor',
-            order: 49,
+            order: 30,
           },
         });
   }

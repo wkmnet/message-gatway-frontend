@@ -1,0 +1,37 @@
+<form>
+    <div class="form-group">
+        <label for="job_alias">任务别名</label>
+        <input type="text" class="form-control" id="job_alias" ng-model="schedule_job.job_alias" placeholder="任务别名">
+    </div>
+    <div class="form-group">
+        <label for="job_name">任务名称</label>
+        <input type="text" class="form-control" id="job_name" ng-model="schedule_job.job_name" placeholder="任务名称">
+    </div>
+    <div class="form-group">
+        <label for="job_group">任务分组</label>
+        <input type="text" class="form-control" id="job_group" ng-model="schedule_job.job_group" placeholder="任务分组">
+    </div>
+    <div class="form-group">
+        <label for="job_impl">任务实现</label>
+        <select class="form-control" id="job_impl" ng-model="schedule_job.job_impl" data-style="btn-primary" title="任务实现" data-container="body" selectpicker>
+            <option selected="{{schedule_job.job_impl == item ? 'selected':''}}" value="{{item}}" data-ng-repeat="item in names">{{item}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="trigger_id">触发器ID</label>
+        <select class="form-control" id="trigger_id" ng-model="schedule_job.trigger_id" data-style="btn-primary" title="触发器ID" data-container="body" selectpicker>
+            <option selected="{{schedule_job.trigger_id == item.id ? 'selected':''}}" value="{{item.id}}" data-ng-repeat="item in triggers.list">{{item.id}} {{item.trigger_name}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="job_params">任务参数</label>
+        <input type="text" class="form-control" id="job_params" ng-model="schedule_job.job_params" placeholder="任务参数">
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="button-wrapper">
+                <button type="button" ng-click="checkScheduleJob()" class="btn btn-success">保存</button>
+            </div>
+        </div>
+    </div>
+</form>

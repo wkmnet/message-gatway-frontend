@@ -63,7 +63,7 @@
                 toastr.error("平台名称为空！");
                 return;
             };
-            if(!$scope.platform.expire_age || $scope.platform.expire_age < 1){
+            if(!$scope.platform.expire_age || $scope.platform.expire_age < 60){
                 toastr.error("超时时间不能少于60秒！");
                 return;
             };

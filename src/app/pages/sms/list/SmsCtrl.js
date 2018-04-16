@@ -67,7 +67,9 @@
                 "&message_id=" + ($scope.param.message_id || "") +
                 "&start=" + ($scope.param.start || "") +
                 "&end=" + ($scope.param.end || "") +
-                "&phone=" + ($scope.param.phone || "");
+                "&phone=" + ($scope.param.phone || "") +
+                "&startTime=" + ($scope.param.startTime || "") +
+                "&endTime=" + ($scope.param.endTime || "");;
             $http.get(url).success(function (resp) {
                 if (resp.success) {
                     $scope.data = resp.data;
