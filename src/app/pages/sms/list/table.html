@@ -16,7 +16,7 @@
         </thead>
         <tr ng-repeat="item in data.list">
             <td class="align-left">{{item.id}}</td>
-            <td class="align-left">{{item.message_id}}</td>
+            <td class="align-left" title="{{item.sms_content}}">{{item.message_id}}</td>
             <td class="align-left">{{item.channel_no}}</td>
             <td class="align-left">{{item.internal_code}}</td>
             <td class="align-left">{{item.phone}}</td>
@@ -32,7 +32,7 @@
         </tr>
         <tfoot>
         <tr>
-            <td colspan="9" class="text-center">
+            <td colspan="10" class="text-center">
                 <div ng-if="data.totalPage">
                     <uib-pagination
                             total-items="data.totalRow"
