@@ -1,0 +1,53 @@
+<div class="horizontal-scroll">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th class="align-right">#</th>
+            <th class="align-right">编号</th>
+            <th class="align-right">分组名称</th>
+            <th class="align-right">机器人</th>
+            <th class="align-right">推送地址</th>
+            <th class="align-right">创建时间</th>
+            <th class="align-right">操作</th>
+        </tr>
+        </thead>
+        <tr ng-repeat="item in data.list">
+            <td class="align-right">{{item.id}}</td>
+            <td class="align-right">{{item.ding_no}}</td>
+            <td class="align-right">{{item.group_name}}</td>
+            <td class="align-right">{{item.robot_name}}</td>
+            <td class="align-right">{{item.url}}</td>
+            <td class="align-right">{{item.created_time}}</td>
+            </td>
+            <td class="align-right">
+                <a href="javascript:void(0);" ng-click="delete(item.id,item.ding_no)">删除</a>
+                <a href="#/ding/new/edit/{{item.id}}">编辑</a>
+            </td>
+        </tr>
+        <tfoot>
+        <tr>
+            <td colspan="10" class="text-center">
+                <div ng-if="data.totalPage">
+
+                    <uib-pagination
+                            total-items="data.totalRow"
+                            class="pagination-sm"
+                            ng-model="param.page"
+                            max-size="5"
+                            boundary-links="true"
+                            force-ellipses="false"
+                            first-text="首页"
+                            last-text="末页"
+                            previous-text="上一页"
+                            next-text="下一页"
+                            num-pages="data.totalPage"
+                            ng-change="queryPlatform()"
+                            items-per-page="data.pageSize">
+                    </uib-pagination>
+                </div>
+
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
