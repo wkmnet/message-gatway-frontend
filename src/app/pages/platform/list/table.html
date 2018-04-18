@@ -9,6 +9,7 @@
             <th class="align-right">超时时间</th>
             <th class="align-right">短信条数</th>
             <th class="align-right">间隔时间</th>
+            <th class="align-right">签名方式</th>
             <th class="align-right">创建时间</th>
             <th class="align-right">状态</th>
             <th class="align-right">操作</th>
@@ -22,6 +23,7 @@
             <td class="align-right">{{item.expire_age}}</td>
             <td class="align-right">{{item.sms_number}}</td>
             <td class="align-right">{{item.sms_interval_time}}</td>
+            <td class="align-right">{{item.sign_type == 0?"签名方式":item.sign_type == 1?"密钥方式":"-"}}
             <td class="align-right">{{item.created_time}}</td>
             <td class="align-right">{{item.status == 0?"创建":item.status == 1?"正常":item.status == 2?"禁用":"-"}}
             </td>

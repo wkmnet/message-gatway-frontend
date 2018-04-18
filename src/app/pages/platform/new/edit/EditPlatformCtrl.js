@@ -101,6 +101,20 @@
             $scope.savePlatform();
 
         };
+        
+        $scope.getKey = function(){
+            $http.get("/api/platform/generate_key").success(function(response){
+                if(response.success){
+                    $scope.platform.platform_key=response.data;
+                }else{
+                    toastr.error(response.message)
+                }
+
+            }).error(function(resp,status){
+                console.log("status",status);
+                toastr.error(resp);
+            });
+        };
 
 
 
