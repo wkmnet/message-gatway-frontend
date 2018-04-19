@@ -26,8 +26,8 @@
             <td class="align-right">{{item.job_enable}}</td>
             <td class="align-right">
                 <a href="javascript:void(0)" ng-click="switchStatus(item.id,item.job_name,item.job_enable == 1?0:1)">{{item.job_enable == 1?"禁用":"启用"}}</a>
-                <a href="javascript:void(0);" ng-click="delete(item.id,item.job_name)">删除</a>
-                <a href="#/schedule_job/new/edit/{{item.id}}">编辑</a>
+                <a href="javascript:void(0);" ng-click="delete(item.id,item.job_name)">{{item.job_enable == 0?'删除':''}}</a>
+                <a href="#/schedule_job/new/edit/{{item.id}}">{{item.job_enable == 0?'编辑':''}}</a>
             </td>
         </tr>
         <tfoot>

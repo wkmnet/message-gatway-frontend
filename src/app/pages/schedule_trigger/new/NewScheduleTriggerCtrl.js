@@ -21,8 +21,8 @@
         $scope.schedule_trigger = {};
 
         $scope.saveScheduleTrigger = function () {
-            console.log("save schedule_job:", $scope.schedule_trigger);
-            $http.post("/api/schedule_job", $scope.schedule_trigger).success(function (response) {
+            console.log("save schedule_trigger:", $scope.schedule_trigger);
+            $http.post("/api/schedule_trigger", $scope.schedule_trigger).success(function (response) {
                 console.log("response:", response);
                 if (response.success) {
                     toastr.success('数据保存成功!');

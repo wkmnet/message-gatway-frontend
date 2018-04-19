@@ -110,6 +110,15 @@
 
         $scope.getClasses();
 
+        $scope.strToJson = function (str){
+            var jsonStr;
+            if(str){
+                jsonStr = JSON.stringify(JSON.parse(str), undefined, 4);
+                console.log("jsonStr ", jsonStr);
+            }
+            return jsonStr;
+        }
+
 
     };
 
