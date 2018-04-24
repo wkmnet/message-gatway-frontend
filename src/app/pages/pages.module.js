@@ -32,7 +32,8 @@
     // 'BlurAdmin.pages.email_list',
     'BlurAdmin.pages.schedule_job',
     'BlurAdmin.pages.schedule_trigger',
-    'BlurAdmin.pages.ding'
+    'BlurAdmin.pages.ding',
+    'BlurAdmin.pages.group'
       
       
   ])

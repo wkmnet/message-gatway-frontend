@@ -1,0 +1,54 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="$dismiss()" aria-label="Close">
+            <em class="ion-ios-close-empty sn-link-close"></em>
+        </button>
+        <h4 class="modal-title">#{{groupId}}组成员</h4>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div ba-panel ba-panel-title="已添加列表" ba-panel-class="with-scroll">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th class="align-right">群名</th>
+                            <th class="align-right">操作</th>
+                        </tr>
+                        </thead>
+                        <tr ng-repeat="item in member">
+                            <td class="align-right">{{item.groupName}}</td>
+                            </td>
+                            <td class="align-right">
+                                <a href="javascript:void(0);" ng-click="remove(item.id)">移除</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div ba-panel ba-panel-title="未添加列表" ba-panel-class="with-scroll">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th class="align-right">群名</th>
+                            <th class="align-right">操作</th>
+                        </tr>
+                        </thead>
+                        <tr ng-repeat="item in nonMember">
+                            <td class="align-right">{{item.groupName}}</td>
+                            </td>
+                            <td class="align-right">
+                                <a href="javascript:void(0);" ng-click="add(item.dingId)">添加</a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click="$dismiss()">确定</button>
+    </div>
+</div>

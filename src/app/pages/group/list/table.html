@@ -3,25 +3,20 @@
         <thead>
         <tr>
             <th class="align-right">#</th>
-            <th class="align-right">编号</th>
-            <th class="align-right">群组名称</th>
-            <th class="align-right">机器人</th>
-            <th class="align-right">推送地址</th>
-            <th class="align-right">创建时间</th>
+            <th class="align-right">分组编号</th>
+            <th class="align-right">分组名称</th>
             <th class="align-right">操作</th>
         </tr>
         </thead>
         <tr ng-repeat="item in data.list">
             <td class="align-right">{{item.id}}</td>
-            <td class="align-right">{{item.ding_no}}</td>
+            <td class="align-right">{{item.group_no}}</td>
             <td class="align-right">{{item.group_name}}</td>
-            <td class="align-right">{{item.robot_name}}</td>
-            <td class="align-right">{{item.url}}</td>
-            <td class="align-right">{{item.created_time}}</td>
             </td>
             <td class="align-right">
-                <a href="javascript:void(0);" ng-click="delete(item.id,item.ding_no)">删除</a>
-                <a href="#/ding/new/edit/{{item.id}}">编辑</a>
+                <a href="javascript:void(0);" ng-click="delete(item.id,item.group_no)">删除</a>
+                <a href="javascript:void(0);" ng-click="openRelation(item.id)">添加群</a>
+                <a href="#/group/new/edit/{{item.id}}">编辑</a>
             </td>
         </tr>
         <tfoot>
@@ -41,7 +36,7 @@
                             previous-text="上一页"
                             next-text="下一页"
                             num-pages="data.totalPage"
-                            ng-change="queryDing()"
+                            ng-change="queryGroup()"
                             items-per-page="data.pageSize">
                     </uib-pagination>
                 </div>

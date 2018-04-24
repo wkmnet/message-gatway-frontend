@@ -5,22 +5,22 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.ding', [
-    'BlurAdmin.pages.ding.list',
-    'BlurAdmin.pages.ding.new',
+  angular.module('BlurAdmin.pages.group', [
+    'BlurAdmin.pages.group.list',
+    'BlurAdmin.pages.group.new',
   ]).config(routeConfig);
 
   /** @ngInject */
   function routeConfig($stateProvider) {
     $stateProvider
-        .state('ding', {
-          url: '/ding',
+        .state('group', {
+          url: '/group',
           template : '<ui-view></ui-view>',
           abstract: true,
-          title: '钉钉群管理',
+          title: '钉钉分组管理',
           sidebarMeta: {
             icon: 'ion-monitor',
-            order: 42,
+            order: 43,
           },
         });
   }

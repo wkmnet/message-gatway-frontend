@@ -22,7 +22,7 @@
                 url: '/new',
                 template: '<ui-view></ui-view>',
                 controller: "NewDingCtrl",
-                title: '新建钉钉',
+                title: '新建钉钉群',
                 sidebarMeta: {
                     icon: 'ion-ios-pulse',
                     order: 100,

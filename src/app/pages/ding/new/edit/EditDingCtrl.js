@@ -20,13 +20,13 @@
     function EditDingCtrl($stateParams,$http,$scope,toastr) {
 
         $scope.dingId = $stateParams.ding;
-        console.log("platformId",$stateParams.ding);
+        console.log("dingId",$stateParams.ding);
 
         $scope.ding = {};
         
 
         $scope.loadDing = function() {
-            console.log("platform",$scope.dingId);
+            console.log("ding",$scope.dingId);
             $http.get("/api/ding/" + $scope.dingId).success(function(response){
                 console.log("response:",response);
                 if(response.success){

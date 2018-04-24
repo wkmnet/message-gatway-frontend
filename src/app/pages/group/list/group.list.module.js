@@ -13,16 +13,16 @@
 (function () {
     'use strict';
 
-    angular.module("BlurAdmin.pages.ding.list",[]).config(routeConfig);
+    angular.module("BlurAdmin.pages.group.list",[]).config(routeConfig);
 
     /** @ngInject */
     function routeConfig($stateProvider) {
         $stateProvider
-            .state('ding.list', {
+            .state('group.list', {
                 url: '/list',
-                templateUrl: 'app/pages/ding/list/list.html',
-                controller: "DingListCtrl",
-                title: '钉钉群列表',
+                templateUrl: 'app/pages/group/list/list.html',
+                controller: "GroupListCtrl",
+                title: '分组列表',
                 sidebarMeta: {
                     icon: 'ion-ios-pulse',
                     order: 0,
