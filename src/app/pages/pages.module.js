@@ -33,7 +33,9 @@
     'BlurAdmin.pages.schedule_job',
     'BlurAdmin.pages.schedule_trigger',
     'BlurAdmin.pages.ding',
-    'BlurAdmin.pages.group'
+    'BlurAdmin.pages.group',
+    'BlurAdmin.pages.d_template',
+      
       
       
   ])
