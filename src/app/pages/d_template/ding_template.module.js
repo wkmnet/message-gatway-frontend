@@ -27,7 +27,7 @@
                 abstract: true,
                 title: '钉钉模板管理',
                 sidebarMeta: {
-                    icon: 'icon ion-compose',
+                    icon: 'icon ion-ios-list-outline',
                     order: 44,
                 },
             });

@@ -19,7 +19,7 @@
           abstract: true,
           title: '钉钉分组管理',
           sidebarMeta: {
-            icon: 'ion-monitor',
+            icon: 'icon ion-chatboxes',
             order: 43,
           },
         });
