@@ -1,0 +1,44 @@
+<div class="widgets">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="batch_no">批次号</label>
+                <input type="text" ng-model="param.batch_no" class="form-control" id="batch_no" placeholder="">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="video_id">视频ID</label>
+                <input type="text" ng-model="param.video_id" class="form-control" id="video_id" placeholder="">
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <label for="status">平台状态</label>
+                <select class="form-control" id="status" ng-model="param.status" title="平台状态" data-style="btn-primary" data-container="body" selectpicker>
+                    <option></option>
+                    <option value="0">处理中</option>
+                    <option value="1">下载失败</option>
+                    <option value="2">上传失败</option>
+                    <option value="3">成功</option>
+                    <option value="4">提交成功</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <label></label>
+            <div class="button-wrapper"><button type="button" ng-click="queryBtn()" class="btn btn-primary  btn-sm">查询</button></div>
+        </div>
+        <div class="col-md-2">
+            <label></label>
+            <div class="button-wrapper"><button type="button" ng-click="queryAll()" class="btn btn-primary  btn-sm">查询全部</button></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div ba-panel ba-panel-title="处理列表" ba-panel-class="with-scroll">
+                <div include-with-scope="app/pages/producer/list/table.html"></div>
+            </div>
+        </div>
+    </div>
+</div>

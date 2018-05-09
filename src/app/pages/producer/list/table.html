@@ -1,0 +1,53 @@
+<div class="horizontal-scroll">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th class="align-left">#</th>
+            <th class="align-left">批次号</th>
+            <th class="align-left">视频ID</th>
+            <th class="align-left">视频源地址</th>
+            <th class="align-left">m3u8地址</th>
+            <th class="align-left">rmhd路径</th>
+            <th class="align-left">状态</th>
+            <th class="align-left">操作</th>
+        </tr>
+        </thead>
+        <tr ng-repeat="item in data.list">
+            <td class="align-left">{{item.id}}</td>
+            <td class="align-left">{{item.batch_no}}</td>
+            <td class="align-left">{{item.video_id}}</td>
+            <td class="align-left">{{item.video_url}}</td>
+            <td class="align-left">{{item.m3u8_url}}</td>
+            <td class="align-left">{{item.rmhd_path}}</td>
+            <td class="align-left">{{item.status == 0?'处理中':item.status == 1?'下载失败':item.status == 2?'上传失败':item.status == 3?'成功':item.status == 4?'提交':'-'}}</td>
+            <td class="align-left">
+                <a href="javascript:void(0);" ng-click="retry(item.id)">{{item.status == 2 ? '重试':''}}</a>
+                <a href="javascript:void(0);" ng-click="delete(item.id)">删除七牛上传文件</a>
+            </td>
+        </tr>
+        <tfoot>
+        <tr>
+            <td colspan="8" class="text-center">
+                <div ng-if="data.totalPage">
+                    <uib-pagination
+                            total-items="data.totalRow"
+                            class="pagination-sm"
+                            ng-model="param.page"
+                            max-size="5"
+                            boundary-links="true"
+                            force-ellipses="false"
+                            first-text="首页"
+                            last-text="末页"
+                            previous-text="上一页"
+                            next-text="下一页"
+                            num-pages="data.totalPage"
+                            ng-change="queryProducer()"
+                            items-per-page="data.pageSize">
+                    </uib-pagination>
+                </div>
+
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
