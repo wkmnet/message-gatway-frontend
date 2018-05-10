@@ -17,7 +17,7 @@
         .controller('ProducerListCtrl', ProducerListCtrl);
 
     /** @ngInject */
-    function ProducerListCtrl($scope, $http, toastr, cfpLoadingBar) {
+    function ProducerListCtrl($scope, $http, toastr, cfpLoadingBar,commonService) {
         $scope.tablePageSize = 10;
         $scope.param = {"page":1,"page_size":$scope.tablePageSize};
         $scope.data = {};
@@ -50,6 +50,15 @@
             $scope.queryProducer();
         };
         $scope.queryProducer();
+
+        $scope.retryProducer = function(id,name){
+            commonService.confirm($scope,'确认对话框','您确定要重试处理视频 ' + name +' 吗？').then(function(result){
+                console.log("result...",result);
+                if(result == 'ok'){
+                    $scope.retry (id);
+                }
+            });
+        };
         
         $scope.retry = function (id) {
             var url = "/api/video/retry?id="+id;
@@ -86,6 +95,15 @@
                 cfpLoadingBar.complete();
             });
 
+        };
+
+        $scope.deleteQiniuVideo = function(id,name){
+            commonService.confirm($scope,'确认对话框','您确定要删除七牛上 ' + name +' 的文件吗？').then(function(result){
+                console.log("result...",result);
+                if(result == 'ok'){
+                    $scope.delete (id);
+                }
+            });
         };
 
         $scope.delete = function (id) {

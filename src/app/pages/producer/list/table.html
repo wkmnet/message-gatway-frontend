@@ -21,8 +21,8 @@
             <td class="align-left">{{item.rmhd_path}}</td>
             <td class="align-left">{{item.status == 0?'处理中':item.status == 1?'下载失败':item.status == 2?'上传失败':item.status == 3?'成功':item.status == 4?'提交':'-'}}</td>
             <td class="align-left">
-                <a href="javascript:void(0);" ng-click="retry(item.id)">重试</a>
-                <a href="javascript:void(0);" ng-click="delete(item.id)">删除七牛上传文件</a>
+                <a href="javascript:void(0);" ng-click="retryProducer(item.id,item.video_id)">重试</a>
+                <a href="javascript:void(0);" ng-click="deleteQiniuVideo(item.id,item.video_id)">删除七牛上传文件</a>
             </td>
         </tr>
         <tfoot>
