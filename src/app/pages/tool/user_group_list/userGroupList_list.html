@@ -1,0 +1,46 @@
+<div class="widgets">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label for="user_ids">用户ID</label>
+                <textarea type="text" ng-model="param.user_ids" class="form-control" id="user_ids"
+                          placeholder=""></textarea>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="form-group">
+                <label for="group_code">分组</label>
+                <input type="text" ng-model="param.group_code" class="form-control" id="group_code" placeholder="">
+            </div>
+        </div>
+        <div class="col-md-2">
+            <label></label>
+            <div class="button-wrapper">
+                <button type="button" ng-click="addUserGroupList()" class="btn btn-primary  btn-sm">添加</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5">
+        <div class="form-group">
+            <label for="user_id">用户ID</label>
+            <input type="text" ng-model="param.user_id" class="form-control" id="user_id" placeholder="">
+        </div>
+    </div>
+    <div class="col-md-2">
+        <label></label>
+        <div class="button-wrapper">
+            <button type="button" ng-click="queryUserGropList()" class="btn btn-primary  btn-sm">查询</button>
+        </div>
+    </div>
+</div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div ba-panel ba-panel-title="用户分组信息" ba-panel-class="with-scroll">
+            <div include-with-scope="app/pages/tool/user_group_list/table.html"></div>
+        </div>
+    </div>
+</div>
+</div>

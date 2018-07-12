@@ -14,7 +14,8 @@
     'use strict';
 
     angular.module('BlurAdmin.pages.tool', [
-        'BlurAdmin.pages.tool.redis'
+        'BlurAdmin.pages.tool.redis',
+        'BlurAdmin.pages.tool.user_group_list',
     ]).config(routeConfig);
 
     /** @ngInject */
