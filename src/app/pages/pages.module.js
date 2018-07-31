@@ -35,6 +35,7 @@
     'BlurAdmin.pages.ding',
     'BlurAdmin.pages.group',
     'BlurAdmin.pages.d_template',
+    'BlurAdmin.pages.redis',
     // "BlurAdmin.pages.producer",
       
       

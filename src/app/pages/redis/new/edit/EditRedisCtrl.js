@@ -13,7 +13,7 @@
 (function () {
     'use strict';
 
-    angular.module('BlurAdmin.pages.tool.redis')
+    angular.module('BlurAdmin.pages.redis.new')
         .controller('EditRedisCtrl', EditRedisCtrl);
 
     /** @ngInject */
@@ -23,6 +23,9 @@
         console.log("redisKey",$stateParams.redis);
         $scope.resource = $stateParams.resource;
         console.log("resource",$stateParams.resource);
+        $scope.db = $stateParams.db;
+        console.log("db",$stateParams.db);
+
 
         $scope.redis = {};
        
@@ -35,7 +38,7 @@
                 str = encodeURIComponent($scope.redisKey)
             }
             console.log("redis key : " + str);
-            var url = "/api/redis/1?key=" + str + "&redis_name=" + ($scope.resource || "");
+            var url = "/api/redis/1?key=" + str + "&redis_name=" + ($scope.resource || "") + "&db=" + ($scope.db || "");
             $http.get(url).success(function(response){
                 console.log("response:",response);
                 if(response.success){
@@ -69,10 +72,12 @@
 
 
         $scope.checkRedis = function () {
-            $scope.redis.redis_name = $scope.resource;
-
             if(!$scope.redis.redis_name){
                 toastr.error("redis_name不能为空！");
+                return;
+            }
+            if(!$scope.redis.db){
+                toastr.error("db不能为空！");
                 return;
             }
             if(!$scope.redis.key){

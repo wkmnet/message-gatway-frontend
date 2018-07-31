@@ -13,7 +13,7 @@
 (function(){
     'use strict'
 
-    angular.module('BlurAdmin.pages.tool.redis')
+    angular.module('BlurAdmin.pages.redis.list')
         .controller('RedisListCtrl', RedisListCtrl);
 
     /** @ngInject */
@@ -51,6 +51,7 @@
             var url = "/api/redis?page=" + ($scope.param.page || "") +
                 "&page_size=" + ($scope.param.page_size || "") +
                 "&redis_name=" + ($scope.param.redis_name || "") +
+                "&db=" + ($scope.param.db || "") +
                 "&pre_page=" + ($scope.param.pre_page || "") +
                 "&cursor=" + ($scope.data.cursor|| "") +
                 "&key=" + str;
@@ -74,6 +75,7 @@
             $scope.queryRedis();
         };
 
+
         $scope.delete = function(key){
             commonService.confirm($scope,'确认对话框','您确定要删除【' + key +'】吗？').then(function(result){
                 console.log("result...",result);
@@ -85,7 +87,7 @@
         $scope.deleteRedis = function (key) {
             console.log("redis name : " + $scope.param.redis_name);
             var str = encodeURIComponent(key);
-            $http.delete("/api/redis/1?key=" + str +"&redis_name=" + $scope.param.redis_name).success(function(resp){
+            $http.delete("/api/redis/1?key=" + str +"&redis_name=" + $scope.param.redis_name +"&db=" + $scope.param.db).success(function(resp){
                 if(resp.success){
                     toastr.success('数据删除成功!');
                     $scope.queryRedis();

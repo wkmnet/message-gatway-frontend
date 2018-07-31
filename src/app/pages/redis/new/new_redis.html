@@ -1,11 +1,17 @@
 <form>
     <div class="form-group">
         <label for="redis_name">redis_name</label>
-        <input type="text" class="form-control" id="redis_name" ng-model="redis.redis_name" readonly>
+        <select class="form-control" id="redis_name" ng-model="redis.redis_name" data-style="btn-primary" selectpicker>
+            <option ng-repeat="item in names" selected value="{{item}}">{{item}}</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="db">db</label>
+        <input type="text" class="form-control" id="db" ng-model="redis.db">
     </div>
     <div class="form-group">
         <label for="key">key</label>
-        <input type="text" class="form-control" id="key" ng-model="redis.key" readonly>
+        <input type="text" class="form-control" id="key" ng-model="redis.key">
     </div>
     <div class="form-group">
         <label for="value">value</label>

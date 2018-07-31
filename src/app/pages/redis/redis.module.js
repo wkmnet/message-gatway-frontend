@@ -13,18 +13,19 @@
 (function () {
     'use strict';
 
-    angular.module('BlurAdmin.pages.tool', [
-        'BlurAdmin.pages.tool.user_group_list'
+    angular.module('BlurAdmin.pages.redis', [
+        'BlurAdmin.pages.redis.list',
+        'BlurAdmin.pages.redis.new',
     ]).config(routeConfig);
 
     /** @ngInject */
     function routeConfig($stateProvider) {
         $stateProvider
-            .state('tool', {
-                url: '/tool',
+            .state('redis', {
+                url: '/redis',
                 template: '<ui-view></ui-view>',
                 abstract: true,
-                title: '工具箱',
+                title: 'Redis管理',
                 sidebarMeta: {
                     icon: 'ion-ios-briefcase',
                     order: 101,
