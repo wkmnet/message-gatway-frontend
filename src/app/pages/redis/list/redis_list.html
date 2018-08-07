@@ -9,7 +9,7 @@
         <div class="col-md-3">
             <div class="form-group">
                 <label for="redis_name">选择redis</label>
-                <select class="form-control" id="redis_name" ng-model="param.redis_name" data-style="btn-primary" selectpicker>
+                <select class="form-control" id="redis_name" ng-change="getDBs()" ng-model="param.redis_name" data-style="btn-primary" selectpicker>
                     <option></option>
                     <option ng-repeat="item in names" selected value="{{item}}">{{item}}</option>
                 </select>
@@ -19,7 +19,10 @@
         <div class="col-md-3">
             <div class="form-group">
                 <label for="db">数据库</label>
-                <input type="text" ng-model="param.db" class="form-control" id="db" placeholder="">
+                <select class="form-control" id="db" ng-model="param.db" data-style="btn-primary" selectpicker>
+                    <option></option>
+                    <option ng-repeat="item in dbs" selected value="{{item}}">{{item}}</option>
+                </select>
             </div>
         </div>
         <div class="col-md-2">
