@@ -1,13 +1,15 @@
 <form>
     <div class="form-group">
         <label for="redis_name">redis_name</label>
-        <select class="form-control" id="redis_name" ng-model="redis.redis_name" data-style="btn-primary" selectpicker>
+        <select class="form-control" id="redis_name"  ng-change="getDBs()" ng-model="redis.redis_name" data-style="btn-primary" selectpicker>
             <option ng-repeat="item in names" selected value="{{item}}">{{item}}</option>
         </select>
     </div>
     <div class="form-group">
         <label for="db">db</label>
-        <input type="text" class="form-control" id="db" ng-model="redis.db">
+        <select class="form-control" id="db" ng-model="redis.db" data-style="btn-primary" selectpicker>
+            <option ng-repeat="item in dbs" selected value="{{item}}">{{item}}</option>
+        </select>
     </div>
     <div class="form-group">
         <label for="key">key</label>

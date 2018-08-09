@@ -80,6 +80,21 @@
         $scope.getNames();
 
 
+        $scope.dbs = [];
+        $scope.getDBs = function (){
+            $http.get("/api/redis/dbs?redis_name=" + ($scope.redis.redis_name || "")).success(function (resp) {
+                if (resp.success) {
+                    $scope.dbs = resp.data;
+                } else {
+                    toastr.error(resp.message);
+                }
+            }).error(function (resp, status) {
+                console.log("status:", status);
+                toastr.error(resp);
+            });
+        };
+
+
     }
 
 })();

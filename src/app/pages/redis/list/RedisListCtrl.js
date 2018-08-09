@@ -51,7 +51,7 @@
                 console.log("status:", status);
                 toastr.error(resp);
             });
-        }
+        };
         
         $scope.queryRedis= function () {
             console.log("cursor : " + $scope.data.cursor);
