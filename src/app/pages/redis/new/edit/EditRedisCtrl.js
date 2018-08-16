@@ -88,10 +88,6 @@
                 toastr.error("value不能为空！");
                 return;
             }
-            if(!$scope.redis.timeout){
-                toastr.error("timeout不能为空！");
-                return;
-            }
 
             $scope.saveRedis();
         };
